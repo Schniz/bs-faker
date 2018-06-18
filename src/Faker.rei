@@ -11,4 +11,4 @@ module Name: {
 };
 module Internet: {let userName: (~firstName: string=?, ~lastName: string=?, unit) => string;};
 module Lorem: {let paragraph: unit => string;};
-module Date: {let past: unit => Js.Date.t;};
+module Date: {let past: (~years: int=?, ~refDate: Js.Date.t=?, unit) => Js.Date.t;};

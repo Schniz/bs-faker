@@ -47,7 +47,7 @@ module Lorem = {
 
 module Date = {
   [@bs.deriving abstract]
-  type date_ = {past: (unit, unit) => Js.Date.t};
-  [@bs.module "faker"] external fakers : date_ = "date";
-  let past = () => past(fakers, (), ());
+  type t = {past: (Js.Nullable.t(int), Js.Nullable.t(Js.Date.t)) => Js.Date.t};
+  [@bs.module "faker"] external fakers : t = "date";
+  let past = (~years=?, ~refDate=?, ()) => past(fakers, nullable(years), nullable(refDate));
 };
