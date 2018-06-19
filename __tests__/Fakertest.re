@@ -37,3 +37,57 @@ describe("Faker.Name", () => {
     expect(Js.typeof(Faker.Name.jobType())) === "string"
   );
 });
+
+describe("Faker.Image", () => {
+  test(".avatar", () =>
+    expect(Js.typeof(Faker.Image.avatar())) === "string"
+  );
+  test(".abstract", () =>
+    expect(Js.typeof(Faker.Image.abstract())) === "string"
+  );
+  test(".animals", () =>
+    expect(Js.typeof(Faker.Image.animals())) === "string"
+  );
+  test(".business", () =>
+    expect(Js.typeof(Faker.Image.business())) === "string"
+  );
+  test(".cats", () =>
+    expect(Js.typeof(Faker.Image.cats())) === "string"
+  );
+  test(".city", () =>
+    expect(Js.typeof(Faker.Image.city())) === "string"
+  );
+  test(".dataUri", () =>
+    expect(Js.typeof(Faker.Image.dataUri())) === "string"
+  );
+  test(".fashion", () =>
+    expect(Js.typeof(Faker.Image.fashion())) === "string"
+  );
+  test(".food", () =>
+    expect(Js.typeof(Faker.Image.food())) === "string"
+  );
+  test(".image", () =>
+    expect(Js.typeof(Faker.Image.image())) === "string"
+  );
+  test(".imageUrl", () =>
+    expect(Js.typeof(Faker.Image.imageUrl())) === "string"
+  );
+  test(".natrue", () =>
+    expect(Js.typeof(Faker.Image.nature())) === "string"
+  );
+  test(".nightlife", () =>
+    expect(Js.typeof(Faker.Image.nightlife())) === "string"
+  );
+  test(".people", () =>
+    expect(Js.typeof(Faker.Image.people())) === "string"
+  );
+  test(".sports", () =>
+    expect(Js.typeof(Faker.Image.sports())) === "string"
+  );
+  test(".technics", () =>
+    expect(Js.typeof(Faker.Image.technics())) === "string"
+  );
+  test(".transport  ", () =>
+    expect(Js.typeof(Faker.Image.transport())) === "string"
+  );
+});
