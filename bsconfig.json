@@ -2,7 +2,7 @@
 // BuckleScript comes with its own parser for bsconfig.json, which is normal JSON, with the extra support of comments and trailing commas.
 {
   "name": "bs-faker",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "sources": [{
     "dir" : "src",
   }, {
