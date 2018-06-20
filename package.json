@@ -1,6 +1,6 @@
 {
   "name": "bs-faker",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "scripts": {
     "build": "bsb -make-world",
     "start": "bsb -make-world -w",
@@ -11,7 +11,7 @@
     "BuckleScript",
     "faker"
   ],
-  "author": "",
+  "author": "Gal Schlezinger <gal@spitfire.co.il>",
   "license": "MIT",
   "devDependencies": {
     "@glennsl/bs-jest": "^0.4.2",
@@ -19,5 +19,8 @@
   },
   "dependencies": {
     "faker": "^4.1.0"
-  }
+  },
+  "description": "Faker.js bindings for BuckleScript in Reason",
+  "repository": "https://github.com/Schniz/bs-faker",
+  "private": false
 }
