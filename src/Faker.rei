@@ -32,3 +32,5 @@ module Name: {
 module Internet: {let userName: (~firstName: string=?, ~lastName: string=?, unit) => string;};
 module Lorem: {let paragraph: unit => string;};
 module Date: {let past: (~years: int=?, ~refDate: Js.Date.t=?, unit) => Js.Date.t;};
+
+let fake: string => Belt.Result.t(string, Js.Exn.t);

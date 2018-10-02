@@ -90,3 +90,15 @@ module Date = {
   [@bs.module "faker"] external fakers : t = "date";
   let past = (~years=?, ~refDate=?, ()) => past(fakers, nullable(years), nullable(refDate));
 };
+
+module Fake = {
+  [@bs.module "faker"] external _fake : string => string = "fake";
+  let fake = input => {
+    switch (_fake(input)) {
+    | value => Belt.Result.Ok(value)
+    | exception Js.Exn.Error(x) => Belt.Result.Error(x)
+    };
+  };
+};
+
+let fake = Fake.fake;
