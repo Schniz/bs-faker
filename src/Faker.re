@@ -33,6 +33,9 @@ module Image = {
   let abstract = fetchImage(abstract);
   let animals = fetchImage(animals);
   let business = fetchImage(business);
+  let sports = fetchImage(sports);
+  let technics = fetchImage(technics);
+  let transport = fetchImage(transport);
   let cats = fetchImage(cats);
   let city = fetchImage(city);
   let fashion = fetchImage(fashion);
@@ -41,9 +44,6 @@ module Image = {
   let nature = fetchImage(nature);
   let nightlife = fetchImage(nightlife);
   let people = fetchImage(people);
-  let sports = fetchImage(sports);
-  let technics = fetchImage(technics);
-  let transport = fetchImage(transport);
 };
 
 module Name = {
