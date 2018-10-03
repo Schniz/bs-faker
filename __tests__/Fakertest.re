@@ -111,3 +111,110 @@ describe("Faker.Image", () => {
     expect(Js.typeof(Faker.Image.transport())) === "string"
   );
 });
+
+describe("Faker.Lorem", () => {
+  test(".word", () =>
+    expect(Js.typeof(Faker.Lorem.word())) === "string"
+  );
+  describe(".words", () => {
+    test("accepts optional args", () => {
+      expect(Js.typeof(Faker.Lorem.words())) === "string"
+    });
+    test("accepts wordCount", () => {
+      expect(
+        Faker.Lorem.words(~wordCount=3, ())
+        |> Js.String.split(" ")
+        |> Js.Array.length
+      ) === 3
+    });
+  });
+  describe(".sentence", () => {
+    test("accepts optional args", () => {
+      expect(Js.typeof(Faker.Lorem.sentence())) === "string"
+    });
+    test("accepts wordCount", () => {
+      expect(
+        Faker.Lorem.sentence(~wordCount=3, ())
+        |> Js.String.split(" ")
+        |> Js.Array.length
+      ) === 3
+    });
+  });
+  describe(".slug", () => {
+    test("accepts optional args", () => {
+      expect(Js.typeof(Faker.Lorem.slug())) === "string"
+    });
+    test("accepts wordCount", () => {
+      expect(
+        Faker.Lorem.slug(~wordCount=3, ())
+        |> Js.String.split("-")
+        |> Js.Array.length
+      ) === 3
+    });
+  });
+  describe(".sentences", () => {
+    test("accepts optional args", () => {
+      expect(Js.typeof(Faker.Lorem.sentences())) === "string"
+    });
+    test("accepts sentenceCount", () => {
+      expect(
+        Faker.Lorem.sentences(~sentenceCount=3, ())
+        |> Js.String.split(".")
+        |> Js.Array.length
+      ) === 4 /* because the last sentence also ends with a period */
+    });
+    test("accepts separator", () => {
+      expect(
+        Faker.Lorem.sentences(~sentenceCount=3, ~separator=";;", ())
+        |> Js.String.split(";;")
+        |> Js.Array.length
+      ) === 3
+    });
+  });
+  describe("paragraph", () => {
+    test("acepts optional args", () => {
+      expect(Js.typeof(Faker.Lorem.paragraph())) === "string"
+    });
+    test("accepts sentenceCount", () => {
+      expect(
+        Faker.Lorem.paragraph(~sentenceCount=3, ())
+        |> Js.String.split(".")
+        |> Js.Array.length
+      ) >= 4 /* because the last sentence also ends with a period, but also paragraph inexplicably adds up to 3 additional sentences */
+    });
+  });
+  describe("paragraphs", () => {
+    test("acepts optional args", () => {
+      expect(Js.typeof(Faker.Lorem.paragraphs())) === "string"
+    });
+    test("accepts paragraphCount", () => {
+      expect(
+        Faker.Lorem.paragraphs(~paragraphCount=3, ())
+        |> Js.String.split("\n \r")
+        |> Js.Array.length
+      ) === 3
+    });
+    test("accepts separator", () => {
+      expect(
+        Faker.Lorem.paragraphs(~paragraphCount=3, ~separator=";;;", ())
+        |> Js.String.split(";;;")
+        |> Js.Array.length
+      ) === 3
+    });
+  });
+  test("text", () =>
+    expect(Js.typeof(Faker.Lorem.text())) === "string"
+  );
+  describe("lines", () => {
+    test("accepts optional args", () => {
+      expect(Js.typeof(Faker.Lorem.lines())) === "string"
+    });
+    test("accepts lineCount", () => {
+      expect(
+        Faker.Lorem.lines(~lineCount=3, ())
+        |> Js.String.split("\n")
+        |> Js.Array.length
+      ) === 3
+    });
+  });
+});

@@ -1,4 +1,4 @@
-# bs-faker [![Build Status](https://travis-ci.org/Schniz/bs-faker.svg?branch=master)](https://travis-ci.org/Schniz/bs-faker) ![BuckleScript binding coverage](https://img.shields.io/badge/binding%20coverage-29%2F148-red.svg)
+# bs-faker [![Build Status](https://travis-ci.org/Schniz/bs-faker.svg?branch=master)](https://travis-ci.org/Schniz/bs-faker) ![BuckleScript binding coverage](https://img.shields.io/badge/binding%20coverage-37%2F148-red.svg)
 
 [Faker.js](https://github.com/marak/Faker.js/) bindings for [BuckleScript](https://github.com/bloomberg/bucklescript) in [Reason](https://github.com/facebook/reason)
 
@@ -81,7 +81,15 @@ let userName = Faker.Internet.userName(~firstName: string=?, ~lastName: string=?
 
 ### `Faker.Lorem`
 ```reason
-let paragraph = Faker.Lorem.paragraph(); /* => string; "Et ratione est totam assumenda ..." */
+let word = Faker.Lorem.word(); /* => string; "Lorem" */
+let words = Faker.Lorem.words(~wordCount=3, ()); /* => string; "Lorem ipsum dolor"
+let sentence = Faker.Lorem.sentence(~wordCount=5, ()); /* => string; "Lorem ipsum dolor est totam"
+let slug = Faker.Lorem.slug(~wordCount=3, ()); /* => string; "lorem-ratione-est" */
+let sentences = Faker.Lorem.sentences(~sentenceCount=3, ~separator=";;;", ()); /* => string; "Lorem ipsum....;;;Et ratione est..." */
+let paragraph = Faker.Lorem.paragraph(~sentenceCount=2, ()); /* => string; "Et ratione est totam assumenda ..." */
+let paragraphs = Faker.Lorem.paragraphs(~paragraphCount=3, ~separator="\n----\n", ()); /* => string */
+let text = Faker.Lorem.text(); /* => string; "Et lorem est dolor totam... */
+let lines = Faker.Lorem.lines(~lineCount=3, ()); /* => string; */
 ```
 
 ### `Faker.Date`

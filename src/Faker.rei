@@ -30,7 +30,19 @@ module Name: {
 };
 
 module Internet: {let userName: (~firstName: string=?, ~lastName: string=?, unit) => string;};
-module Lorem: {let paragraph: unit => string;};
+
+module Lorem: {
+  let word: unit => string;
+  let words: (~wordCount: int=?, unit) => string;
+  let sentence: (~wordCount: int=?, unit) => string;
+  let slug: (~wordCount: int=?, unit) => string;
+  let sentences: (~sentenceCount: int=?, ~separator: string=?, unit) => string;
+  let paragraph: (~sentenceCount: int=?, unit) => string;
+  let paragraphs: (~paragraphCount: int=?, ~separator: string=?, unit) => string;
+  let text: unit => string;
+  let lines: (~lineCount: int=?, unit) => string;
+};
+
 module Date: {let past: (~years: int=?, ~refDate: Js.Date.t=?, unit) => Js.Date.t;};
 
 let fake: string => Belt.Result.t(string, Js.Exn.t);
