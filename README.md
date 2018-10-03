@@ -1,4 +1,4 @@
-# bs-faker ![BuckleScript binding coverage](https://img.shields.io/badge/binding%20coverage-28%2F148-red.svg)
+# bs-faker [![Build Status](https://travis-ci.org/Schniz/bs-faker.svg?branch=master)](https://travis-ci.org/Schniz/bs-faker) ![BuckleScript binding coverage](https://img.shields.io/badge/binding%20coverage-29%2F148-red.svg)
 
 [Faker.js](https://github.com/marak/Faker.js/) bindings for [BuckleScript](https://github.com/bloomberg/bucklescript) in [Reason](https://github.com/facebook/reason)
 
@@ -24,6 +24,18 @@ let narrowFood = Faker.Image.food(~width=200, ()); /* => "https://someimage/with
 
 /* Without the optional parameters, you don't have to add the unit */
 let defaultFood = Faker.Image.food(); /* => "https://someimage/with/default/width" */
+```
+
+### `Faker.fake`
+Creates a string with fake data using mustache style templates.
+Returns a safe, `result` type instead of throwing an error on runtime.
+
+```reason
+let message = Faker.fake("Welcome aboard, {{name.firstName}}");
+switch (message) {
+| Ok(msg) => print_endline(msg)
+| Error(_) => print_endline("Parsing error")
+};
 ```
 
 ### `Faker.Image`

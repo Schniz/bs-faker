@@ -44,3 +44,5 @@ module Lorem: {
 };
 
 module Date: {let past: (~years: int=?, ~refDate: Js.Date.t=?, unit) => Js.Date.t;};
+
+let fake: string => Belt.Result.t(string, Js.Exn.t);

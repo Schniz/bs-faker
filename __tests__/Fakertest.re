@@ -2,16 +2,36 @@ open Jest;
 open Expect;
 open! Expect.Operators;
 
+describe("Faker.fake", () => {
+  test("returns ok(value) on success", () =>
+    expect(
+      Faker.fake("Hello {{name.firstName}}")
+      |. Belt.Result.getWithDefault("error"),
+    )
+    |> toMatchRe(Js.Re.fromString("^Hello \\w+$"))
+  );
+
+  test("returns error(message) on error", () =>
+    expect(
+      Faker.fake("Hello {{shouldn't work}}")
+      |. Belt.Result.getWithDefault("error"),
+    )
+    === "error"
+  );
+});
+
 describe("Faker.Name", () => {
   describe(".findName", () => {
     test("accepts optional args", () =>
       expect(Js.typeof(Faker.Name.findName())) === "string"
     );
     test("accepts firstName", () =>
-      expect(Faker.Name.findName(~firstName="Gal", ())) |> toMatchRe(Js.Re.fromString("^Gal "))
+      expect(Faker.Name.findName(~firstName="Gal", ()))
+      |> toMatchRe(Js.Re.fromString("Gal "))
     );
     test("accepts lastName", () =>
-      expect(Faker.Name.findName(~lastName="Hagever", ())) |> toMatchRe(Js.Re.fromString(" Hagever$"))
+      expect(Faker.Name.findName(~lastName="Hagever", ()))
+      |> toMatchRe(Js.Re.fromString(" Hagever"))
     );
   });
 
