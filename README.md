@@ -97,6 +97,21 @@ let lines = Faker.Lorem.lines(~lineCount=3, ()); /* => string; */
 let past = Faker.Date.past(~years: int=?, ~refDate: Js.Date.t=?, ()); /* => Js.Date.t; */
 ```
 
+### `Faker.Company`
+```reason
+let suffixes = Faker.Company.suffixes(); /* => ["and Sons", "Co.", "Inc."] */
+let companyName = Faker.Company.companyName(~format=2, ()); /* => "Dewey, Cheatem and Howe" */
+let companySuffix = Faker.Company.companySuffix(); /* => "Co." */
+let catchPhrase = Faker.Company.catchPhrase(); /* => string */
+let bs = Faker.Company.bs(); /* => string */
+let catchPhraseAdjective = Faker.Company.catchPhraseAdjective(); /* => string */
+let catchPhraseDescriptor = Faker.Company.catchPhraseDescriptor(); /* => string */
+let catchPhraseNoun = Faker.Company.catchPhraseNoun(); /* => string */
+let bsAdjective = Faker.Company.bsAdjective(); /* => string */
+let bsBuzz = Faker.Company.bsBuzz(); /* => string */
+let bsNoun = Faker.Company.bsNoun(); /* => string */
+```
+
 # Testing the library
 
 ```

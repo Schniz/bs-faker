@@ -218,3 +218,48 @@ describe("Faker.Lorem", () => {
     });
   });
 });
+
+describe("Faker.Company", () => {
+  test("suffixes", () => {
+    expect(Js.Array.isArray(Faker.Company.suffixes())) === true
+  });
+  describe("companyName", () => {
+    test("accepts optional args", () => {
+      expect(Js.typeof(Faker.Company.companyName())) === "string"
+    });
+    test("accepts format", () => {
+      expect(
+        Faker.Company.companyName(~format=1, ())
+        |> Js.String.split(" - ") /* format 1 is "something - something" */
+        |> Js.Array.length
+      ) === 2;
+    });
+  });
+  test("companySuffix", () => {
+    expect(Js.typeof(Faker.Company.companySuffix())) === "string"
+  });
+  test("catchPhrase", () => {
+    expect(Js.typeof(Faker.Company.catchPhrase())) === "string"
+  });
+  test("bs", () => {
+    expect(Js.typeof(Faker.Company.bs())) === "string"
+  });
+  test("catchPhraseAdjective", () => {
+    expect(Js.typeof(Faker.Company.catchPhraseAdjective())) === "string"
+  });
+  test("catchPhraseDescriptor", () => {
+    expect(Js.typeof(Faker.Company.catchPhraseDescriptor())) === "string"
+  });
+  test("catchPhraseNoun", () => {
+    expect(Js.typeof(Faker.Company.catchPhraseNoun())) === "string"
+  });
+  test("bsAdjective", () => {
+    expect(Js.typeof(Faker.Company.bsAdjective())) === "string"
+  });
+  test("bsBuzz", () => {
+    expect(Js.typeof(Faker.Company.bsBuzz())) === "string"
+  });
+  test("bsNoun", () => {
+    expect(Js.typeof(Faker.Company.bsNoun())) === "string"
+  });
+});
