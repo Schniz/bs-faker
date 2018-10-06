@@ -1,4 +1,4 @@
-# bs-faker [![Build Status](https://travis-ci.org/Schniz/bs-faker.svg?branch=master)](https://travis-ci.org/Schniz/bs-faker) ![BuckleScript binding coverage](https://img.shields.io/badge/binding%20coverage-37%2F148-red.svg)
+# bs-faker [![Build Status](https://travis-ci.org/Schniz/bs-faker.svg?branch=master)](https://travis-ci.org/Schniz/bs-faker) ![BuckleScript binding coverage](https://img.shields.io/badge/binding%20coverage-48%2F148-red.svg)
 
 [Faker.js](https://github.com/marak/Faker.js/) bindings for [BuckleScript](https://github.com/bloomberg/bucklescript) in [Reason](https://github.com/facebook/reason)
 
@@ -95,6 +95,21 @@ let lines = Faker.Lorem.lines(~lineCount=3, ()); /* => string; */
 ### `Faker.Date`
 ```reason
 let past = Faker.Date.past(~years: int=?, ~refDate: Js.Date.t=?, ()); /* => Js.Date.t; */
+```
+
+### `Faker.Company`
+```reason
+let suffixes = Faker.Company.suffixes(); /* => ["and Sons", "Co.", "Inc."] */
+let companyName = Faker.Company.companyName(~format=2, ()); /* => "Dewey, Cheatem and Howe" */
+let companySuffix = Faker.Company.companySuffix(); /* => "Co." */
+let catchPhrase = Faker.Company.catchPhrase(); /* => string */
+let bs = Faker.Company.bs(); /* => string */
+let catchPhraseAdjective = Faker.Company.catchPhraseAdjective(); /* => string */
+let catchPhraseDescriptor = Faker.Company.catchPhraseDescriptor(); /* => string */
+let catchPhraseNoun = Faker.Company.catchPhraseNoun(); /* => string */
+let bsAdjective = Faker.Company.bsAdjective(); /* => string */
+let bsBuzz = Faker.Company.bsBuzz(); /* => string */
+let bsNoun = Faker.Company.bsNoun(); /* => string */
 ```
 
 # Testing the library

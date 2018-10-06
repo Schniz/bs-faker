@@ -45,4 +45,18 @@ module Lorem: {
 
 module Date: {let past: (~years: int=?, ~refDate: Js.Date.t=?, unit) => Js.Date.t;};
 
+module Company: {
+  let suffixes: unit => Js.Array.t(string);
+  let companyName: (~format: int=?, unit) => string
+  let companySuffix: unit => string;
+  let catchPhrase: unit => string;
+  let bs: unit => string;
+  let catchPhraseAdjective: unit => string;
+  let catchPhraseDescriptor: unit => string;
+  let catchPhraseNoun: unit => string;
+  let bsAdjective: unit => string;
+  let bsBuzz: unit => string;
+  let bsNoun: unit => string;
+}
+
 let fake: string => Belt.Result.t(string, Js.Exn.t);
