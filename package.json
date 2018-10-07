@@ -5,7 +5,8 @@
     "build": "bsb -make-world",
     "start": "bsb -make-world -w",
     "clean": "bsb -clean-world",
-    "test": "bsb -make-world && jest"
+    "test": "bsb -make-world && jest",
+    "prepublishOnly": "npm run build"
   },
   "keywords": [
     "BuckleScript",
