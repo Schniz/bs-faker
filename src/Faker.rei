@@ -57,6 +57,12 @@ module Company: {
   let bsAdjective: unit => string;
   let bsBuzz: unit => string;
   let bsNoun: unit => string;
-}
+};
+
+module Phone: {
+  let phoneNumber: (~format: string=?, unit) => string;
+  let phoneNumberFormat: (~phoneFormatsIndex: int) => string;
+  let phoneFormats: unit => string;
+};
 
 let fake: string => Belt.Result.t(string, Js.Exn.t);

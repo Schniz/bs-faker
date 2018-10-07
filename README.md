@@ -1,4 +1,4 @@
-# bs-faker [![Build Status](https://travis-ci.org/Schniz/bs-faker.svg?branch=master)](https://travis-ci.org/Schniz/bs-faker) ![BuckleScript binding coverage](https://img.shields.io/badge/binding%20coverage-48%2F148-red.svg)
+# bs-faker [![Build Status](https://travis-ci.org/Schniz/bs-faker.svg?branch=master)](https://travis-ci.org/Schniz/bs-faker) ![BuckleScript binding coverage](https://img.shields.io/badge/binding%20coverage-51%2F148-red.svg)
 
 [Faker.js](https://github.com/marak/Faker.js/) bindings for [BuckleScript](https://github.com/bloomberg/bucklescript) in [Reason](https://github.com/facebook/reason)
 
@@ -110,6 +110,13 @@ let catchPhraseNoun = Faker.Company.catchPhraseNoun(); /* => string */
 let bsAdjective = Faker.Company.bsAdjective(); /* => string */
 let bsBuzz = Faker.Company.bsBuzz(); /* => string */
 let bsNoun = Faker.Company.bsNoun(); /* => string */
+```
+
+### `Faker.Phone`
+```reason
+let phoneNumber = Faker.Phone.phoneNumber(~format="###.###.####", ()); /* => string; "621.876.3963" */
+let phoneNumberFormat = Faker.Phone.phoneNumberFormat(~phoneFormatsIndex=0); /* => string; "107-646-3702" */
+let phoneFormats = Faker.Phone.phoneFormats(); /* => string; "###-###-#### x###" */
 ```
 
 # Testing the library

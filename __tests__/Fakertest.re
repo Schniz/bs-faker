@@ -263,3 +263,32 @@ describe("Faker.Company", () => {
     expect(Js.typeof(Faker.Company.bsNoun())) === "string"
   });
 });
+
+describe("Faker.Phone", () => {
+  describe(".phoneNumber", () => {
+    test("accepts optional args", () =>
+      expect(Js.typeof(Faker.Phone.phoneNumber())) === "string"
+    );
+    test("accepts format", () =>
+      expect(
+        Faker.Phone.phoneNumber(~format="###_###_###", ())
+        |> Js.String.split("_")
+        |> Js.Array.length,
+      )
+      === 3
+    );
+  });
+
+  test(".phoneNumberFormat", () =>
+    expect(
+      Faker.Phone.phoneNumberFormat(~phoneFormatsIndex=0)  /* "###-###-####" */
+      |> Js.String.split("-")
+      |> Js.Array.length,
+    )
+    === 3
+  );
+
+  test(".phoneFormats", () =>
+    expect(Js.typeof(Faker.Phone.phoneFormats())) === "string"
+  );
+});
