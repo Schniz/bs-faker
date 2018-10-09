@@ -81,8 +81,8 @@ let userName = Faker.Internet.userName(~firstName: string=?, ~lastName: string=?
 ### `Faker.Lorem`
 ```reason
 let word = Faker.Lorem.word(); /* => string; "Lorem" */
-let words = Faker.Lorem.words(~wordCount=3, ()); /* => string; "Lorem ipsum dolor"
-let sentence = Faker.Lorem.sentence(~wordCount=5, ()); /* => string; "Lorem ipsum dolor est totam"
+let words = Faker.Lorem.words(~wordCount=3, ()); /* => string; "Lorem ipsum dolor" */
+let sentence = Faker.Lorem.sentence(~wordCount=5, ()); /* => string; "Lorem ipsum dolor est totam" */
 let slug = Faker.Lorem.slug(~wordCount=3, ()); /* => string; "lorem-ratione-est" */
 let sentences = Faker.Lorem.sentences(~sentenceCount=3, ~separator=";;;", ()); /* => string; "Lorem ipsum....;;;Et ratione est..." */
 let paragraph = Faker.Lorem.paragraph(~sentenceCount=2, ()); /* => string; "Et ratione est totam assumenda ..." */
