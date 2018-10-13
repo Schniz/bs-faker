@@ -77,6 +77,20 @@ let jobType = Faker.Name.jobType(); /* => string; "Assistant" */
 
 ```reason
 let userName = Faker.Internet.userName(~firstName: string=?, ~lastName: string=?, ()); /* => string; "Rage.Max123" */
+let avatar = Faker.Internet.avatar(); /* => string; "https://s3.amazonaws.com/uifaces/faces/twitter/igorgarybaldi/128.jpg" */
+let email = Faker.Internet.email(); /* => string; ": "foo.bar@gmail.com" */
+let exampleEmail = Faker.Internet.exampleEmail(); /* => string; "foo.bar@example.org" */
+let protocol = Faker.Internet.protocol(); /* => string; "https" */
+let url = Faker.Internet.url(); /* => string; "https://rashawn.name" */
+let domainName = Faker.Internet.domainName(); /* => string; "marvin.org" */
+let domainSuffix = Faker.Internet.domainSuffix(); /* => string; "net" */
+let domainWord = Faker.Internet.domainWord(); /* => string; "alyce" */
+let ip = Faker.Internet.ip(); /* => string; "97.238.241.11" */
+let ipv6 = Faker.Internet.ipv6(); /* => string; "2001:0db8:6276:b1a7:5213:22f1:25df:c8a0" */
+let userAgent = Faker.Internet.userAgent(); /* => string; "Mozilla/5.0 (Macintosh; U; PPC Mac OS X 10_7_5 rv:6.0; SL) AppleWebKit/532.0.1 (KHTML, like Gecko)" */
+let color = Faker.Internet.color(); /* => string; "#06267f" */
+let mac = Faker.Internet.mac(); /* => string; "78:06:cc:ae:b3:81" */
+let password = Faker.Internet.password(); /* => string; "AM7zl6Mg" */
 ```
 
 ### `Faker.Lorem`
