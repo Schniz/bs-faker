@@ -55,6 +55,24 @@ describe("Faker.Random", () => {
   test(".locale", () => {
     expect(Js.typeof(Faker.Random.locale())) === "string"
   });
+  describe(".number", () => {
+    test("accepts defaults for optional args", () => {
+      expect(Js.typeof(Faker.Random.number())) === "number";
+    });
+    test("accepts min", () => {
+      expect(Faker.Random.number(~min=15, ()))
+      |> toBeGreaterThanOrEqual(15);
+    });
+    test("accepts max", () => {
+      expect(Faker.Random.number(~max=100, ()))
+      |> toBeLessThanOrEqual(100);
+    });
+    test("accepts precision", () => {
+      expect(
+        Faker.Random.number(~precision=35, ()) mod 35
+      ) === 0;
+    })
+  })
 });
 
 describe("Faker.Name", () => {
