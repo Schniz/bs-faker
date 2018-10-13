@@ -151,6 +151,15 @@ let fileExt = Faker.System.fileExt(~mimeType="audio/webm", ()); /* => string; "m
 let semver = Faker.System.semver(); /* => string; "0.8.1" */
 ```
 
+### `Faker.Locale`
+`setLocale` function accepts parameter in form of variant.
+The variant's constructors are capitalized locale ids of available locales, i.e. `Az` | `Cz` | `De` | `En_GB` etc.
+
+```reason
+let () = Faker.Locale.setLocale(Sk); /* => unit */
+let locale = Faker.Locale.getLocale(); /* => string; "sk" */
+```
+
 # Testing the library
 
 ```
