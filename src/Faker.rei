@@ -84,4 +84,13 @@ module Database: {
   let engine: unit => string;
 };
 
+module Hacker: {
+  let abbreviation: unit => string;
+  let adjective: unit => string;
+  let noun: unit => string;
+  let verb: unit => string;
+  let ingverb: unit => string;
+  let phrase: unit => string;
+};
+
 let fake: string => Belt.Result.t(string, Js.Exn.t);
