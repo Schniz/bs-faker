@@ -118,6 +118,14 @@ let phoneNumberFormat = Faker.Phone.phoneNumberFormat(~phoneFormatsIndex=0); /* 
 let phoneFormats = Faker.Phone.phoneFormats(); /* => string; "###-###-#### x###" */
 ```
 
+### `Faker.Database`
+```reason
+let column = Faker.Database.column(); /* => string; "id" */
+let type_ = Faker.Database.type_(); /* => string; "byte" */
+let collation = Faker.Database.collation(); /* => string; "utf8_unicode_ci" */
+let engine = Faker.Database.engine(); /* => string; "MyISAM" */
+```
+
 # Testing the library
 
 ```

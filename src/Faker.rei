@@ -65,4 +65,11 @@ module Phone: {
   let phoneFormats: unit => string;
 };
 
+module Database: {
+  let column: unit => string;
+  let type_: unit => string;
+  let collation: unit => string;
+  let engine: unit => string;
+};
+
 let fake: string => Belt.Result.t(string, Js.Exn.t);
