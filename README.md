@@ -1,4 +1,4 @@
-# bs-faker [![Build Status](https://travis-ci.org/Schniz/bs-faker.svg?branch=master)](https://travis-ci.org/Schniz/bs-faker) ![BuckleScript binding coverage](https://img.shields.io/badge/binding%20coverage-51%2F148-red.svg)
+# bs-faker [![Build Status](https://travis-ci.org/Schniz/bs-faker.svg?branch=master)](https://travis-ci.org/Schniz/bs-faker) ![BuckleScript binding coverage](https://img.shields.io/badge/binding%20coverage-60%2F148-red.svg)
 > [Faker.js](https://github.com/marak/Faker.js/) bindings for [BuckleScript](https://github.com/bloomberg/bucklescript) in [Reason](https://github.com/facebook/reason)
 
 # Install
@@ -116,6 +116,19 @@ let bsNoun = Faker.Company.bsNoun(); /* => string */
 let phoneNumber = Faker.Phone.phoneNumber(~format="###.###.####", ()); /* => string; "621.876.3963" */
 let phoneNumberFormat = Faker.Phone.phoneNumberFormat(~phoneFormatsIndex=0); /* => string; "107-646-3702" */
 let phoneFormats = Faker.Phone.phoneFormats(); /* => string; "###-###-#### x###" */
+```
+
+### `Faker.Random`
+```reason
+let alphaNumeric = Faker.Random.alphaNumeric(~count=5, ()); /* => string; "9fedl" */
+let arrayElement = Faker.Random.arrayElement(~array=[| 126, -3, 58, 31 |], ()); /* => int; 58 */
+let boolean = Faker.Random.boolean(); /* => boolean; true */
+let image = Faker.Random.image(); /* => string; "http://lorempixel.com/640/480/city" */
+let locale = Faker.Random.locale(); /* => string; "sk" */
+let number = Faker.Random.number(~min=0, ~max=150, ~precision=5, ()); /* => int; 65 */
+let uuid = Faker.Random.uuid(); /* => string; "053cf30a-e38a-4327-936a-e5e2991f6b7f" */
+let word = Faker.Random.word(); /* => string; "Gibraltar" */
+let words = Faker.Random.words(~count=3, ()); /* => string; "Savings Account function Executive" */
 ```
 
 # Testing the library

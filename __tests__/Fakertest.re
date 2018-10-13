@@ -20,6 +20,79 @@ describe("Faker.fake", () => {
   );
 });
 
+describe("Faker.Random", () => {
+  describe(".alphaNumeric", () => {
+    test("accepts optional args", () =>
+      expect(Js.typeof(Faker.Random.alphaNumeric())) === "string"
+    );
+    test("generates string of provided length", () => {
+      let count = 5;
+      expect(
+        Faker.Random.alphaNumeric(~count, ())
+        |> Js.String.length
+      ) === count;
+    })
+  });
+  describe(".arrayElement", () => {
+    test("returns random array element", () => {
+      let array: Js.Array.t(int) = [| 1, 7, 3, 19, -3, 3613 |];
+      let result = switch (Faker.Random.arrayElement(~array)) {
+          | Some(x) => x
+          | None => raise(Not_found)
+        };
+      expect(Js.Array.includes(result, array)) === true;
+    });
+    test("returns undefined when passed empty array argument", () => {
+      expect(Faker.Random.arrayElement(~array=[||])) === None
+    })
+  });
+  test(".boolean", () => {
+    expect(Js.typeof(Faker.Random.boolean())) === "boolean"
+  });
+  test(".image", () => {
+    expect(Js.typeof(Faker.Random.image())) === "string"
+  });
+  test(".locale", () => {
+    expect(Js.typeof(Faker.Random.locale())) === "string"
+  });
+  describe(".number", () => {
+    test("accepts defaults for optional args", () => {
+      expect(Js.typeof(Faker.Random.number())) === "number";
+    });
+    test("accepts min", () => {
+      expect(Faker.Random.number(~min=15, ()))
+      |> toBeGreaterThanOrEqual(15);
+    });
+    test("accepts max", () => {
+      expect(Faker.Random.number(~max=100, ()))
+      |> toBeLessThanOrEqual(100);
+    });
+    test("accepts precision", () => {
+      expect(
+        Faker.Random.number(~precision=35, ()) mod 35
+      ) === 0;
+    })
+  });
+  test(".uuid", () => {
+    expect(Js.typeof(Faker.Random.uuid())) === "string";
+  });
+  test(".word", () => {
+    expect(Js.typeof(Faker.Random.word())) === "string";
+  });
+  describe(".words", () => {
+    test("accepts defaults for optional args", () => {
+      expect(Js.typeof(Faker.Random.words())) === "string";
+    });
+    test("accepts count", () => {
+      expect(
+        Faker.Random.words(~count=5, ())
+        |> Js.String.split(" ")
+        |> Js.Array.length
+      ) >= 5 /* Some words consist of multiple space-separated parts */
+    })
+  });
+});
+
 describe("Faker.Name", () => {
   describe(".findName", () => {
     test("accepts optional args", () =>
