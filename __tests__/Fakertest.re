@@ -33,6 +33,19 @@ describe("Faker.Random", () => {
       ) === count;
     })
   });
+  describe(".arrayElement", () => {
+    test("returns random array element", () => {
+      let array: Js.Array.t(int) = [| 1, 7, 3, 19, -3, 3613 |];
+      let result = switch (Faker.Random.arrayElement(~array)) {
+          | Some(x) => x
+          | None => raise(Not_found)
+        };
+      expect(Js.Array.includes(result, array)) === true;
+    });
+    test("returns undefined when passed empty array argument", () => {
+      expect(Faker.Random.arrayElement(~array=[||])) === None
+    })
+  });
   test(".boolean", () => {
     expect(Js.typeof(Faker.Random.boolean())) === "boolean"
   });

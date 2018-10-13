@@ -67,6 +67,7 @@ module Phone: {
 
 module Random: {
   let alphaNumeric: (~count: int=?, unit) => string;
+  let arrayElement: (~array: Js.Array.t('a)) => option('a);
   let boolean: unit => bool;
   let image: unit => string;
   let locale: unit => string;

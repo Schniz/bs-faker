@@ -167,6 +167,10 @@ module Random = {
   let boolean = () => boolean(fakers, ());
   let image = () => image(fakers, ());
   let locale = () => locale(fakers, ());
+
+  [@bs.module "faker"] [@bs.scope "random"]
+  external arrayElement : Js.Array.t('a) => nullable('a) = "";
+  let arrayElement = (~array) => Js.Nullable.toOption(arrayElement(array));
 }
 
 module Fake = {
