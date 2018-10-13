@@ -131,6 +131,123 @@ describe("Faker.Name", () => {
   );
 });
 
+describe("Faker.Internet", () => {
+  describe(".userName", () => {
+    test("accepts optional args", () =>
+      expect(Js.typeof(Faker.Internet.userName())) === "string"
+    );
+    test("accepts firstName", () =>
+      expect(
+        Faker.Internet.userName(~firstName="joe", ()) |> Js.String.startsWith("joe"),
+      )
+      === true
+    );
+    test("accepts lastName", () =>
+      expect(Js.typeof(Faker.Internet.userName(~lastName="Jones", ()))) === "string"
+    );
+  });
+  describe(".email", () => {
+    test("accepts optional args", () =>
+      expect(Js.typeof(Faker.Internet.email())) === "string"
+    );
+    test("accepts firstName", () =>
+      expect(
+        Faker.Internet.email(~firstName="joe", ()) |> Js.String.startsWith("joe"),
+      )
+      === true
+    );
+    test("accepts lastName", () =>
+      expect(Js.typeof(Faker.Internet.email(~lastName="jones", ()))) === "string"
+    );
+    test("accepts provider", () =>
+      expect(
+        Faker.Internet.email(~provider="domain.org", ())
+        |> Js.String.endsWith("domain.org"),
+      )
+      === true
+    );
+  });
+  describe(".exampleEmail", () => {
+    test("accepts optional args", () =>
+      expect(Js.typeof(Faker.Internet.exampleEmail())) === "string"
+    );
+    test("accepts firstName", () =>
+      expect(
+        Faker.Internet.exampleEmail(~firstName="joe", ())
+        |> Js.String.startsWith("joe"),
+      )
+      === true
+    );
+    test("accepts lastName", () =>
+      expect(Js.typeof(Faker.Internet.exampleEmail(~lastName="jones", ())))
+      === "string"
+    );
+    test("contains example domain", () =>
+      expect(Faker.Internet.exampleEmail() |> Js.String.includes("@example.")) === true
+    );
+  });
+  test(".avatar", () =>
+    expect(Js.typeof(Faker.Internet.avatar())) === "string"
+  );
+  test(".protocol", () =>
+    expect(Js.typeof(Faker.Internet.protocol())) === "string"
+  );
+  test(".url", () =>
+    expect(Js.typeof(Faker.Internet.url())) === "string"
+  );
+  test(".domainName", () =>
+    expect(Js.typeof(Faker.Internet.domainName())) === "string"
+  );
+  test(".domainSuffix", () =>
+    expect(Js.typeof(Faker.Internet.domainSuffix())) === "string"
+  );
+  test(".domainWord", () =>
+    expect(Js.typeof(Faker.Internet.domainWord())) === "string"
+  );
+  test(".ip", () =>
+    expect(Js.typeof(Faker.Internet.ip())) === "string"
+  );
+  test(".ipv6", () =>
+    expect(Js.typeof(Faker.Internet.ipv6())) === "string"
+  );
+  test(".userAgent", () =>
+    expect(Js.typeof(Faker.Internet.userAgent())) === "string"
+  );
+  test(".mac", () =>
+    expect(Js.typeof(Faker.Internet.mac())) === "string"
+  );
+  describe(".color", () => {
+    test("accepts optional args", () =>
+      expect(Js.typeof(Faker.Internet.color())) === "string"
+    );
+    test("accepts color args", () =>
+      expect(Js.typeof(Faker.Internet.color(~red=255, ~green=255, ~blue=255, ())))
+      === "string"
+    );
+  });
+  describe(".password", () => {
+    test("accepts optional args", () =>
+      expect(Js.typeof(Faker.Internet.password())) === "string"
+    );
+    test("accept length", () =>
+      expect(Faker.Internet.password(~length=8, ()) |> Js.String.length) === 8
+    );
+    test("accept memorable", () =>
+      expect(Js.typeof(Faker.Internet.password(~memorable=true, ()))) === "string"
+    );
+    test("accept pattern", () => {
+      let pattern = [%re "/[a-b0-1]+/"];
+      expect(Faker.Internet.password(~pattern, ()) |. Js.Re.test(pattern)) === true;
+    });
+    test("accept prefix", () =>
+      expect(
+        Faker.Internet.password(~prefix="xxx", ()) |> Js.String.startsWith("xxx"),
+      )
+      === true
+    );
+  });
+});
+
 describe("Faker.Image", () => {
   test(".avatar", () =>
     expect(Js.typeof(Faker.Image.avatar())) === "string"
