@@ -153,6 +153,22 @@ module Phone = {
   let phoneFormats = () => phoneFormats(fakers, ());
 };
 
+module Random = {
+  [@bs.deriving abstract]
+  type t = {
+    alphaNumeric: Js.Nullable.t(int) => string,
+    boolean: unit => bool,
+    image: unit => string,
+    locale: unit => string,
+  };
+  [@bs.module "faker"] external fakers : t = "random";
+  let alphaNumeric = (~count=?, ()) =>
+    alphaNumeric(fakers, nullable(count));
+  let boolean = () => boolean(fakers, ());
+  let image = () => image(fakers, ());
+  let locale = () => locale(fakers, ());
+}
+
 module Fake = {
   [@bs.module "faker"] external _fake : string => string = "fake";
   let fake = input => {

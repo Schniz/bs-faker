@@ -65,4 +65,11 @@ module Phone: {
   let phoneFormats: unit => string;
 };
 
+module Random: {
+  let alphaNumeric: (~count: int=?, unit) => string;
+  let boolean: unit => bool;
+  let image: unit => string;
+  let locale: unit => string;
+}
+
 let fake: string => Belt.Result.t(string, Js.Exn.t);

@@ -20,6 +20,30 @@ describe("Faker.fake", () => {
   );
 });
 
+describe("Faker.Random", () => {
+  describe(".alphaNumeric", () => {
+    test("accepts optional args", () =>
+      expect(Js.typeof(Faker.Random.alphaNumeric())) === "string"
+    );
+    test("generates string of provided length", () => {
+      let count = 5;
+      expect(
+        Faker.Random.alphaNumeric(~count, ())
+        |> Js.String.length
+      ) === count;
+    })
+  });
+  test(".boolean", () => {
+    expect(Js.typeof(Faker.Random.boolean())) === "boolean"
+  });
+  test(".image", () => {
+    expect(Js.typeof(Faker.Random.image())) === "string"
+  });
+  test(".locale", () => {
+    expect(Js.typeof(Faker.Random.locale())) === "string"
+  });
+});
+
 describe("Faker.Name", () => {
   describe(".findName", () => {
     test("accepts optional args", () =>
