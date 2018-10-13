@@ -90,9 +90,7 @@ describe("Faker.Random", () => {
         |> Js.Array.length
       ) >= 5 /* Some words consist of multiple space-separated parts */
     })
-  })
-
-
+  });
 });
 
 describe("Faker.Name", () => {

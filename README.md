@@ -118,6 +118,20 @@ let phoneNumberFormat = Faker.Phone.phoneNumberFormat(~phoneFormatsIndex=0); /* 
 let phoneFormats = Faker.Phone.phoneFormats(); /* => string; "###-###-#### x###" */
 ```
 
+### `Faker.Random`
+```reason
+let alphaNumeric = Faker.Random.alphaNumeric(~count=5, ()); /* => string; "9fedl" */
+let arrayElement = Faker.Random.arrayElement(~array=[| 126, -3, 58, 31 |], ()); /* => int; 58 */
+let boolean = Faker.Random.boolean(); /* => boolean; true */
+let image = Faker.Random.image(); /* => string; "http://lorempixel.com/640/480/city" */
+let locale = Faker.Random.locale(); /* => string; "sk" */
+let number = Faker.Random.number(~min=0, ~max=150, ~precision=5, ()); /* => int; 65 */
+let uuid = Faker.Random.uuid(); /* => string; "053cf30a-e38a-4327-936a-e5e2991f6b7f" */
+let word = Faker.Random.word(); /* => string; "Gibraltar" */
+let words = Faker.Random.words(~count=3, ()); /* => string; "Savings Account function Executive" */
+
+```
+
 # Testing the library
 
 ```
