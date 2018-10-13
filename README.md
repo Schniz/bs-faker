@@ -129,7 +129,6 @@ let number = Faker.Random.number(~min=0, ~max=150, ~precision=5, ()); /* => int;
 let uuid = Faker.Random.uuid(); /* => string; "053cf30a-e38a-4327-936a-e5e2991f6b7f" */
 let word = Faker.Random.word(); /* => string; "Gibraltar" */
 let words = Faker.Random.words(~count=3, ()); /* => string; "Savings Account function Executive" */
-
 ```
 
 # Testing the library
