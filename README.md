@@ -139,6 +139,16 @@ let collation = Faker.Database.collation(); /* => string; "utf8_unicode_ci" */
 let engine = Faker.Database.engine(); /* => string; "MyISAM" */
 ```
 
+### `Faker.Hacker`
+```reason
+let abbreviation = abbreviation(); /* => string; "XSS" */
+let adjective = adjective(); /* => string; "primary" */
+let noun = noun(); /* => string; "capacitor" */
+let verb = verb(); /* => string; "synthesize" */
+let ingverb = ingverb(); /* => string; "hacking" */
+let phrase = phrase(); /* => string; "You can't transmit the program without overriding the bluetooth RSS port!" */
+```
+
 # Testing the library
 
 ```
