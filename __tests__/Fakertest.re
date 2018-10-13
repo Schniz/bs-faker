@@ -380,3 +380,66 @@ describe("Faker.Database", () => {
     expect(Js.typeof(Faker.Database.engine())) === "string"
   );
 });
+
+describe("Faker.System", () => {
+  describe(".fileName", () =>
+    test("accepts optional args", () =>
+      expect(Js.typeof(Faker.System.fileName())) === "string"
+    )
+  );
+
+  describe(".commonFileName", () => {
+    test("accepts optional args", () =>
+      expect(Js.typeof(Faker.System.commonFileName())) === "string"
+    );
+    test("accepts ext", () =>
+      expect(
+        Faker.System.commonFileName(~ext="txt", ())
+        |> Js.String.split(".")
+        |> Array.get(_, 1),
+      )
+      === "txt"
+    );
+  });
+
+  describe(".mimeType", () =>
+    test("returns string", () =>
+      expect(Js.typeof(Faker.System.mimeType())) === "string"
+    )
+  );
+
+  describe(".commonFileType", () =>
+    test("returns string", () =>
+      expect(Js.typeof(Faker.System.commonFileType())) === "string"
+    )
+  );
+
+  describe(".commonFileExt", () =>
+    test("accepts optional args", () =>
+      expect(Js.typeof(Faker.System.commonFileExt())) === "string"
+    )
+  );
+
+  describe(".fileType", () =>
+    test("returns string", () =>
+      expect(Js.typeof(Faker.System.fileType())) === "string"
+    )
+  );
+
+  describe(".fileExt", () => {
+    test("accepts optional args", () =>
+      expect(Js.typeof(Faker.System.fileExt())) === "string"
+    );
+    test("accepts mimeType", () =>
+      expect(Js.typeof(Faker.System.fileExt(~mimeType="audio/webm", ())))
+      === "string"
+    );
+  });
+
+  describe(".semver", () =>
+    test("returns a semver string", () =>
+      expect(Faker.System.semver())
+      |> toMatchRe(Js.Re.fromString("\d\.\d\.\d"))
+    )
+  );
+});
