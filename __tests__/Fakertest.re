@@ -365,3 +365,18 @@ describe("Faker.Phone", () => {
     expect(Js.typeof(Faker.Phone.phoneFormats())) === "string"
   );
 });
+
+describe("Faker.Database", () => {
+  test(".column", () =>
+    expect(Js.typeof(Faker.Database.column())) === "string"
+  );
+  test(".type_", () =>
+    expect(Js.typeof(Faker.Database.type_())) === "string"
+  );
+  test(".collation", () =>
+    expect(Js.typeof(Faker.Database.collation())) === "string"
+  );
+  test(".engine", () =>
+    expect(Js.typeof(Faker.Database.engine())) === "string"
+  );
+});

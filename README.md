@@ -1,4 +1,4 @@
-# bs-faker [![Build Status](https://travis-ci.org/Schniz/bs-faker.svg?branch=master)](https://travis-ci.org/Schniz/bs-faker) ![BuckleScript binding coverage](https://img.shields.io/badge/binding%20coverage-60%2F148-red.svg)
+# bs-faker [![Build Status](https://travis-ci.org/Schniz/bs-faker.svg?branch=master)](https://travis-ci.org/Schniz/bs-faker) ![BuckleScript binding coverage](https://img.shields.io/badge/binding%20coverage-64%2F148-red.svg)
 > [Faker.js](https://github.com/marak/Faker.js/) bindings for [BuckleScript](https://github.com/bloomberg/bucklescript) in [Reason](https://github.com/facebook/reason)
 
 # Install
@@ -129,6 +129,14 @@ let number = Faker.Random.number(~min=0, ~max=150, ~precision=5, ()); /* => int;
 let uuid = Faker.Random.uuid(); /* => string; "053cf30a-e38a-4327-936a-e5e2991f6b7f" */
 let word = Faker.Random.word(); /* => string; "Gibraltar" */
 let words = Faker.Random.words(~count=3, ()); /* => string; "Savings Account function Executive" */
+```
+
+### `Faker.Database`
+```reason
+let column = Faker.Database.column(); /* => string; "id" */
+let type_ = Faker.Database.type_(); /* => string; "byte" */
+let collation = Faker.Database.collation(); /* => string; "utf8_unicode_ci" */
+let engine = Faker.Database.engine(); /* => string; "MyISAM" */
 ```
 
 # Testing the library
