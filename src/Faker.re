@@ -166,7 +166,10 @@ module Random = {
     boolean: unit => bool,
     image: unit => string,
     locale: unit => string,
-    number: number_options_t => int
+    number: number_options_t => int,
+    uuid: unit => string,
+    word: unit => string,
+    words: Js.Nullable.t(int) => string
   };
   [@bs.module "faker"] external fakers : t = "random";
   let alphaNumeric = (~count=?, ()) =>
@@ -178,6 +181,9 @@ module Random = {
     let options = number_options_t(~min, ~max, ~precision, ());
     number(fakers, options);
   };
+  let uuid = () => uuid(fakers, ());
+  let word = () => word(fakers, ());
+  let words = (~count=?, ()) => words(fakers, nullable(count));
 
   [@bs.module "faker"] [@bs.scope "random"]
   external arrayElement : Js.Array.t('a) => nullable('a) = "";

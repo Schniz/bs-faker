@@ -72,7 +72,27 @@ describe("Faker.Random", () => {
         Faker.Random.number(~precision=35, ()) mod 35
       ) === 0;
     })
+  });
+  test(".uuid", () => {
+    expect(Js.typeof(Faker.Random.uuid())) === "string";
+  });
+  test(".word", () => {
+    expect(Js.typeof(Faker.Random.word())) === "string";
+  });
+  describe(".words", () => {
+    test("accepts defaults for optional args", () => {
+      expect(Js.typeof(Faker.Random.words())) === "string";
+    });
+    test("accepts count", () => {
+      expect(
+        Faker.Random.words(~count=5, ())
+        |> Js.String.split(" ")
+        |> Js.Array.length
+      ) >= 5 /* Some words consist of multiple space-separated parts */
+    })
   })
+
+
 });
 
 describe("Faker.Name", () => {

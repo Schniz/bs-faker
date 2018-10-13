@@ -71,7 +71,10 @@ module Random: {
   let boolean: unit => bool;
   let image: unit => string;
   let locale: unit => string;
-  let number: (~min: int=?, ~max: int=?, ~precision: int=?, unit) => int
+  let number: (~min: int=?, ~max: int=?, ~precision: int=?, unit) => int;
+  let uuid: unit => string;
+  let word: unit => string;
+  let words: (~count: int=?, unit) => string;
 }
 
 let fake: string => Belt.Result.t(string, Js.Exn.t);
