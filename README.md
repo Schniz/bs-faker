@@ -110,6 +110,7 @@ let phoneFormats = BsFaker.Phone.phoneFormats(); /* => string; "###-###-#### x##
 ```
 
 ### `BsFaker.Internet`
+```reason
 let userName = BsFaker.Internet.userName(~firstName: string=?, ~lastName: string=?, ()); /* => string; "Rage.Max123" */
 let avatar = BsFaker.Internet.avatar(); /* => string; "https://s3.amazonaws.com/uifaces/faces/twitter/igorgarybaldi/128.jpg" */
 let email = BsFaker.Internet.email(); /* => string; ": "foo.bar@gmail.com" */
