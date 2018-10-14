@@ -8,7 +8,16 @@
 npm install --save bs-faker
 ```
 
-Then add `bs-faker` as a dependency to `bsconfig.json`
+Then add `bs-faker` as a dependency to `bsconfig.json`:
+
+```diff
+  ...
+  "bs-dependencies": [
+    // add your dependencies here. You'd usually install them normally through `npm install my-dependency`. If my-dependency has a bsconfig.json too, then everything will work seamlessly.
++   "bs-faker"
+  ]
+  ...
+```
 
 ## API
 
