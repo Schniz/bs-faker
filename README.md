@@ -1,4 +1,4 @@
-# bs-faker [![Build Status](https://travis-ci.org/Schniz/bs-faker.svg?branch=master)](https://travis-ci.org/Schniz/bs-faker) ![BuckleScript binding coverage](https://img.shields.io/badge/binding%20coverage-80%2F148-red.svg)
+# bs-faker [![Build Status](https://travis-ci.org/Schniz/bs-faker.svg?branch=master)](https://travis-ci.org/Schniz/bs-faker) ![BuckleScript binding coverage](https://img.shields.io/badge/binding%20coverage-86%2F148-red.svg)
 > [Faker.js](https://github.com/marak/Faker.js/) bindings for [BuckleScript](https://github.com/bloomberg/bucklescript) in [Reason](https://github.com/facebook/reason)
 
 # Install
@@ -137,6 +137,16 @@ let column = BsFaker.Database.column(); /* => string; "id" */
 let type_ = BsFaker.Database.type_(); /* => string; "byte" */
 let collation = BsFaker.Database.collation(); /* => string; "utf8_unicode_ci" */
 let engine = BsFaker.Database.engine(); /* => string; "MyISAM" */
+```
+
+### `BsFaker.Hacker`
+```reason
+let abbreviation = abbreviation(); /* => string; "XSS" */
+let adjective = adjective(); /* => string; "primary" */
+let noun = noun(); /* => string; "capacitor" */
+let verb = verb(); /* => string; "synthesize" */
+let ingverb = ingverb(); /* => string; "hacking" */
+let phrase = phrase(); /* => string; "You can't transmit the program without overriding the bluetooth RSS port!" */
 ```
 
 ### `BsFaker.System`
