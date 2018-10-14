@@ -11,7 +11,7 @@ Then add `bs-faker` as a dependency to `bsconfig.json`
 
 # Usage
 
-Don't hesitate to view the interface file `Faker.rei` to see library usage.
+Don't hesitate to view the interface files `*.rei` to see library usage.
 
 ## API
 
