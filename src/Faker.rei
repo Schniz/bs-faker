@@ -84,6 +84,15 @@ module Database: {
   let engine: unit => string;
 };
 
+module Hacker: {
+  let abbreviation: unit => string;
+  let adjective: unit => string;
+  let noun: unit => string;
+  let verb: unit => string;
+  let ingverb: unit => string;
+  let phrase: unit => string;
+};
+
 module System: {
   let fileName: (~ext: string=?, ~type_: string=?, unit) => string;
   let commonFileName: (~ext: string=?, ~type_: string=?, unit) => string;

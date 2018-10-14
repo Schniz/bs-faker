@@ -381,6 +381,27 @@ describe("Faker.Database", () => {
   );
 });
 
+describe("Faker.Hacker", () => {
+  test(".abbreviation", () =>
+    expect(Js.typeof(Faker.Hacker.abbreviation())) === "string"
+  );
+  test(".adjective", () =>
+    expect(Js.typeof(Faker.Hacker.adjective())) === "string"
+  );
+  test(".noun", () =>
+    expect(Js.typeof(Faker.Hacker.noun())) === "string"
+  );
+  test(".verb", () =>
+    expect(Js.typeof(Faker.Hacker.verb())) === "string"
+  );
+  test(".ingverb", () =>
+    expect(Js.typeof(Faker.Hacker.ingverb())) === "string"
+  );
+  test(".phrase", () =>
+    expect(Js.typeof(Faker.Hacker.phrase())) === "string"
+  );
+});
+
 describe("Faker.System", () => {
   describe(".fileName", () =>
     test("accepts optional args", () =>
