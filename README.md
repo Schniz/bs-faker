@@ -1,4 +1,4 @@
-# bs-faker [![Build Status](https://travis-ci.org/Schniz/bs-faker.svg?branch=master)](https://travis-ci.org/Schniz/bs-faker) ![BuckleScript binding coverage](https://img.shields.io/badge/binding%20coverage-72%2F148-red.svg)
+# bs-faker [![Build Status](https://travis-ci.org/Schniz/bs-faker.svg?branch=master)](https://travis-ci.org/Schniz/bs-faker) ![BuckleScript binding coverage](https://img.shields.io/badge/binding%20coverage-73%2F148-red.svg)
 > [Faker.js](https://github.com/marak/Faker.js/) bindings for [BuckleScript](https://github.com/bloomberg/bucklescript) in [Reason](https://github.com/facebook/reason)
 
 # Install
@@ -149,6 +149,15 @@ let commonFileExt = Faker.System.commonFileExt(); /* => string; "png" */
 let fileType = Faker.System.fileType(); /* => string; "audio" */
 let fileExt = Faker.System.fileExt(~mimeType="audio/webm", ()); /* => string; "model" */
 let semver = Faker.System.semver(); /* => string; "0.8.1" */
+```
+
+### `Faker.Locale`
+`setLocale` function accepts parameter in form of variant.
+The variant's constructors are capitalized locale ids of available locales, i.e. `Az` | `Cz` | `De` | `En_GB` etc.
+
+```reason
+let () = Faker.Locale.setLocale(Sk); /* => unit */
+let locale = Faker.Locale.getLocale(); /* => string; "sk" */
 ```
 
 # Testing the library

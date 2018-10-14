@@ -443,3 +443,13 @@ describe("Faker.System", () => {
     )
   );
 });
+
+describe("Faker.Locale", () => {
+  test(".getLocale", () =>
+    expect(Faker.Locale.getLocale()) === "en"
+  );
+  test(".setLocale", () => {
+    Faker.Locale.setLocale(Sk);
+    expect(Faker.Locale.getLocale()) === "sk";
+  });
+});
