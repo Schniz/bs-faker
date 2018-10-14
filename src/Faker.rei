@@ -93,4 +93,35 @@ module Hacker: {
   let phrase: unit => string;
 };
 
+module System: {
+  let fileName: (~ext: string=?, ~type_: string=?, unit) => string;
+  let commonFileName: (~ext: string=?, ~type_: string=?, unit) => string;
+  let mimeType: unit => string;
+  let commonFileType: unit => string;
+  let commonFileExt: (~type_: string=?, unit) => string;
+  let fileType: unit => string;
+  let fileExt: (~mimeType: string=?, unit) => string;
+  let semver: unit => string;
+};
+
 let fake: string => Belt.Result.t(string, Js.Exn.t);
+
+module Locale: {
+  type locale = Az | Cz | De | De_AT | De_CH | En | En_AU | En_BORK | En_CA
+    | En_GB | En_IE | En_IND | En_US | En_au_ocker | Es | Es_MX | Fa | Fr | Fr_CA
+    | Ge | Id_ID | It | Ja | Ko | Nb_NO | Nep | Nl | Pl | Pt_BR | Ru | Sk | Sv
+    | Tr | Uk | Vi | Zh_CN | Zh_TW;
+  let getLocale: unit => string;
+  let setLocale: locale => unit;
+};
+
+module Commerce: {
+  let color: unit => string;
+  let department: unit => string;
+  let productName: unit => string;
+  let price:
+    (~min: int=?, ~max: int=?, ~decimal: int=?, ~symbol: string=?, unit) => string;
+  let productAdjective: unit => string;
+  let productMaterial: unit => string;
+  let product: unit => string;
+};

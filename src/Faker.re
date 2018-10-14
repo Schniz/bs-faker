@@ -227,6 +227,50 @@ module Hacker = {
   let phrase = () => phrase(fakers, ());
 };
 
+module System = {
+  [@bs.deriving abstract]
+  type t = {
+    fileName: (Js.Nullable.t(string), Js.Nullable.t(string)) => string,
+    commonFileName: (Js.Nullable.t(string), Js.Nullable.t(string)) => string,
+    mimeType: unit => string,
+    commonFileType: unit => string,
+    commonFileExt: Js.Nullable.t(string) => string,
+    fileType: unit => string,
+    fileExt: Js.Nullable.t(string) => string,
+    semver: unit => string,
+  };
+
+  [@bs.module "faker"] external fakers : t = "system";
+
+  /*
+     Optional ext and type arguments are ignored by faker.js.
+     See https://github.com/Marak/faker.js/issues/687
+     Therefore they are not tested.
+   */
+  let fileName = (~ext=?, ~type_=?, ()) =>
+    fileName(fakers, nullable(ext), nullable(type_));
+
+  /*
+     Optional type argument is ignored by faker.js.
+     See https://github.com/Marak/faker.js/issues/687
+     Therefore it is not tested.
+   */
+  let commonFileName = (~ext=?, ~type_=?, ()) =>
+    commonFileName(fakers, nullable(ext), nullable(type_));
+  let mimeType = () => mimeType(fakers, ());
+  let commonFileType = () => commonFileType(fakers, ());
+
+  /*
+     Optional type argument is ignored by faker.js.
+     Therefore it is not tested.
+   */
+  let commonFileExt = (~type_=?, ()) =>
+    commonFileExt(fakers, nullable(type_));
+  let fileType = () => fileType(fakers, ());
+  let fileExt = (~mimeType=?, ()) => fileExt(fakers, nullable(mimeType));
+  let semver = () => semver(fakers, ());
+};
+
 module Fake = {
   [@bs.module "faker"] external _fake : string => string = "fake";
   let fake = input => {
@@ -238,3 +282,57 @@ module Fake = {
 };
 
 let fake = Fake.fake;
+
+module Locale = {
+  type locale = Az | Cz | De | De_AT | De_CH | En | En_AU | En_BORK | En_CA
+    | En_GB | En_IE | En_IND | En_US | En_au_ocker | Es | Es_MX | Fa | Fr | Fr_CA
+    | Ge | Id_ID | It | Ja | Ko | Nb_NO | Nep | Nl | Pl | Pt_BR | Ru | Sk | Sv
+    | Tr | Uk | Vi | Zh_CN | Zh_TW;
+
+  [@bs.deriving abstract]
+  type t = {mutable locale: string};
+  
+  [@bs.module] external faker : t = "faker";
+
+  let getLocale = () => locale(faker);
+
+  let string_from_locale = fun
+    | Az => "az" | Cz => "cz" | De => "de" | De_AT => "de_AT" | De_CH => "de_CH"
+    | En => "en" | En_AU => "en_AU" | En_BORK => "en_BORK" | En_CA => "en_CA"
+    | En_GB => "en_GB" | En_IE => "en_IE" | En_IND => "en_IND" | En_US => "en_US"
+    | En_au_ocker => "en_au_ocker" | Es => "es" | Es_MX => "es_MX" | Fa => "fa"
+    | Fr => "fr" | Fr_CA => "fr_CA" | Ge => "ge" | Id_ID => "id_ID" | It => "it"
+    | Ja => "ja" | Ko => "ko" | Nb_NO => "nb_NO" | Nep => "nep" | Nl => "nl"
+    | Pl => "pl" | Pt_BR => "pt_BR" | Ru => "ru" | Sk => "sk" | Sv => "sv"
+    | Tr => "tr" | Uk => "uk" | Vi => "vi" | Zh_CN => "zh_CN" | Zh_TW => "zh_TW"
+  ;
+
+  let setLocale = (locale) => {
+    let locale_string = string_from_locale(locale);
+    localeSet(faker, locale_string);
+  };
+};
+
+module Commerce = {
+  [@bs.deriving abstract]
+  type t = {
+    color: unit => string,
+    department: unit => string,
+    productName: unit => string,
+    price: (int, int, int, string) => string,
+    productAdjective: unit => string,
+    productMaterial: unit => string,
+    product: unit => string,
+  };
+
+  [@bs.module "faker"] external fakers : t = "commerce";
+
+  let color = () => color(fakers, ());
+  let department = () => department(fakers, ());
+  let productName = () => productName(fakers, ());
+  let price = (~min=0, ~max=1000, ~decimal=2, ~symbol="", ()) =>
+    price(fakers, min, max, decimal, symbol);
+  let productAdjective = () => productAdjective(fakers, ());
+  let productMaterial = () => productMaterial(fakers, ());
+  let product = () => product(fakers, ());
+};

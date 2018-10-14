@@ -1,4 +1,4 @@
-# bs-faker [![Build Status](https://travis-ci.org/Schniz/bs-faker.svg?branch=master)](https://travis-ci.org/Schniz/bs-faker) ![BuckleScript binding coverage](https://img.shields.io/badge/binding%20coverage-70%2F148-red.svg)
+# bs-faker [![Build Status](https://travis-ci.org/Schniz/bs-faker.svg?branch=master)](https://travis-ci.org/Schniz/bs-faker) ![BuckleScript binding coverage](https://img.shields.io/badge/binding%20coverage-86%2F148-red.svg)
 > [Faker.js](https://github.com/marak/Faker.js/) bindings for [BuckleScript](https://github.com/bloomberg/bucklescript) in [Reason](https://github.com/facebook/reason)
 
 # Install
@@ -147,6 +147,39 @@ let noun = noun(); /* => string; "capacitor" */
 let verb = verb(); /* => string; "synthesize" */
 let ingverb = ingverb(); /* => string; "hacking" */
 let phrase = phrase(); /* => string; "You can't transmit the program without overriding the bluetooth RSS port!" */
+```
+
+### `Faker.System`
+```reason
+let fileName = Faker.System.fileName(); /* => string; "optical.xsm" */
+let commonFileName = Faker.System.commonFileName(~ext="txt", ()); /* => string; "redundant.txt" */
+let mimeType = Faker.System.mimeType(); /* => string; "audio/webm" */
+let commonFileType = Faker.System.commonFileType(); /* => string; "text" */
+let commonFileExt = Faker.System.commonFileExt(); /* => string; "png" */
+let fileType = Faker.System.fileType(); /* => string; "audio" */
+let fileExt = Faker.System.fileExt(~mimeType="audio/webm", ()); /* => string; "model" */
+let semver = Faker.System.semver(); /* => string; "0.8.1" */
+```
+
+### `Faker.Commerce`
+
+```reason
+let color = Faker.Commerce.color(); /* => string; "maroon" */
+let department = Faker.Commerce.department(); /* => string; "Music" */
+let productName = Faker.Commerce.productName(); /* => string; "Licensed Steel Keyboard" */
+let price = Faker.Commerce.price(~min=0, ~max=1000, ~decimal=2, ~symbol="$", ()); /* => string; "$580.00" */
+let productAdjective = Faker.Commerce.productAdjective(); /* => string; "Handcrafted" */
+let productMaterial = Faker.Commerce.productMaterial(); /* => string; "Granite" */
+let product = Faker.Commerce.product(); /* => string; "Salad" */
+```
+
+### `Faker.Locale`
+`setLocale` function accepts parameter in form of variant.
+The variant's constructors are capitalized locale ids of available locales, i.e. `Az` | `Cz` | `De` | `En_GB` etc.
+
+```reason
+let () = Faker.Locale.setLocale(Sk); /* => unit */
+let locale = Faker.Locale.getLocale(); /* => string; "sk" */
 ```
 
 # Testing the library

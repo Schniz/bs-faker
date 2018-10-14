@@ -401,3 +401,115 @@ describe("Faker.Hacker", () => {
     expect(Js.typeof(Faker.Hacker.phrase())) === "string"
   );
 });
+
+describe("Faker.System", () => {
+  describe(".fileName", () =>
+    test("accepts optional args", () =>
+      expect(Js.typeof(Faker.System.fileName())) === "string"
+    )
+  );
+
+  describe(".commonFileName", () => {
+    test("accepts optional args", () =>
+      expect(Js.typeof(Faker.System.commonFileName())) === "string"
+    );
+    test("accepts ext", () =>
+      expect(
+        Faker.System.commonFileName(~ext="txt", ())
+        |> Js.String.split(".")
+        |> Array.get(_, 1),
+      )
+      === "txt"
+    );
+  });
+
+  describe(".mimeType", () =>
+    test("returns string", () =>
+      expect(Js.typeof(Faker.System.mimeType())) === "string"
+    )
+  );
+
+  describe(".commonFileType", () =>
+    test("returns string", () =>
+      expect(Js.typeof(Faker.System.commonFileType())) === "string"
+    )
+  );
+
+  describe(".commonFileExt", () =>
+    test("accepts optional args", () =>
+      expect(Js.typeof(Faker.System.commonFileExt())) === "string"
+    )
+  );
+
+  describe(".fileType", () =>
+    test("returns string", () =>
+      expect(Js.typeof(Faker.System.fileType())) === "string"
+    )
+  );
+
+  describe(".fileExt", () => {
+    test("accepts optional args", () =>
+      expect(Js.typeof(Faker.System.fileExt())) === "string"
+    );
+    test("accepts mimeType", () =>
+      expect(Js.typeof(Faker.System.fileExt(~mimeType="audio/webm", ())))
+      === "string"
+    );
+  });
+
+  describe(".semver", () =>
+    test("returns a semver string", () =>
+      expect(Faker.System.semver())
+      |> toMatchRe(Js.Re.fromString("\\d\\.\\d\\.\\d"))
+    )
+  );
+});
+
+describe("Faker.Locale", () => {
+  test(".getLocale", () =>
+    expect(Faker.Locale.getLocale()) === "en"
+  );
+  test(".setLocale", () => {
+    Faker.Locale.setLocale(Sk);
+    expect(Faker.Locale.getLocale()) === "sk";
+  });
+});
+
+describe("Faker.Commerce", () => {
+  test(".color", () =>
+    expect(Js.typeof(Faker.Commerce.color())) === "string"
+  );
+  test(".department", () =>
+    expect(Js.typeof(Faker.Commerce.department())) === "string"
+  );
+  test(".productName", () =>
+    expect(Js.typeof(Faker.Commerce.productName())) === "string"
+  );
+  test(".productAdjective", () =>
+    expect(Js.typeof(Faker.Commerce.productAdjective())) === "string"
+  );
+  test(".productMaterial", () =>
+    expect(Js.typeof(Faker.Commerce.productMaterial())) === "string"
+  );
+  test(".product", () =>
+    expect(Js.typeof(Faker.Commerce.product())) === "string"
+  );
+  describe(".price", () => {
+    test("accepts optional args", () =>
+      expect(Js.typeof(Faker.Commerce.price())) === "string"
+    );
+    test("accepts min", () =>
+      expect(Faker.Commerce.price(~min=900, ()) |> float_of_string) >= 900.
+    );
+    test("accepts max", () =>
+      expect(Faker.Commerce.price(~max=3, ()) |> float_of_string) <= 3.
+    );
+    test("accepts decimal", () =>
+      expect(Faker.Commerce.price(~decimal=0, ()) |> int_of_string) >= 0
+    );
+    test("accepts symbol", () =>
+      expect(Faker.Commerce.price(~symbol="$", ()) |> Js.String.startsWith("$"))
+      === true
+    );
+  });
+});
