@@ -2,7 +2,7 @@ open Jest;
 open Expect;
 open! Expect.Operators;
 
-describe("Faker.fake", () => {
+describe("BsFaker.fake", () => {
   test("returns ok(value) on success", () =>
     expect(
       Faker.fake("Hello {{name.firstName}}") |. Belt.Result.getWithDefault("error"),

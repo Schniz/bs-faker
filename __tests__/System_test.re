@@ -2,7 +2,7 @@ open Jest;
 open Expect;
 open! Expect.Operators;
 
-describe("Faker.System", () => {
+describe("BsFaker.System", () => {
   describe(".fileName", () =>
     test("accepts optional args", () =>
       expect(Js.typeof(System.fileName())) === "string"

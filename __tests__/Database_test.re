@@ -2,7 +2,7 @@ open Jest;
 open Expect;
 open! Expect.Operators;
 
-describe("Faker.Database", () => {
+describe("BsFaker.Database", () => {
   test(".column", () =>
     expect(Js.typeof(Database.column())) === "string"
   );

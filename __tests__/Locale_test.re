@@ -2,7 +2,7 @@ open Jest;
 open Expect;
 open! Expect.Operators;
 
-describe("Faker.Locale", () => {
+describe("BsFaker.Locale", () => {
   test(".getLocale", () =>
     expect(Locale.getLocale()) === "en"
   );

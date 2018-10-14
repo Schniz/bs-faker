@@ -2,7 +2,7 @@ open Jest;
 open Expect;
 open! Expect.Operators;
 
-describe("Faker.Phone", () => {
+describe("BsFaker.Phone", () => {
   describe(".phoneNumber", () => {
     test("accepts optional args", () =>
       expect(Js.typeof(Phone.phoneNumber())) === "string"

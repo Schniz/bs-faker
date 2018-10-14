@@ -2,7 +2,7 @@ open Jest;
 open Expect;
 open! Expect.Operators;
 
-describe("Faker.Company", () => {
+describe("BsFaker.Company", () => {
   test("suffixes", () =>
     expect(Js.Array.isArray(Company.suffixes())) === true
   );

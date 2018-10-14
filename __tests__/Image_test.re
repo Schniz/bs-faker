@@ -2,7 +2,7 @@ open Jest;
 open Expect;
 open! Expect.Operators;
 
-describe("Faker.Image", () => {
+describe("BsFaker.Image", () => {
   test(".avatar", () =>
     expect(Js.typeof(Image.avatar())) === "string"
   );

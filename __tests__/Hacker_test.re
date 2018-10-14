@@ -2,7 +2,7 @@ open Jest;
 open Expect;
 open! Expect.Operators;
 
-describe("Faker.Hacker", () => {
+describe("BsFaker.Hacker", () => {
   test(".abbreviation", () =>
     expect(Js.typeof(Hacker.abbreviation())) === "string"
   );
