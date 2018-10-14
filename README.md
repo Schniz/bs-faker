@@ -69,12 +69,6 @@ let jobArea = BsFaker.Name.jobArea(); /* => string; "Tactics" */
 let jobType = BsFaker.Name.jobType(); /* => string; "Assistant" */
 ```
 
-### `BsFaker.Internet`
-
-```reason
-let userName = BsFaker.Internet.userName(~firstName: string=?, ~lastName: string=?, ()); /* => string; "Rage.Max123" */
-```
-
 ### `BsFaker.Lorem`
 ```reason
 let word = BsFaker.Lorem.word(); /* => string; "Lorem" */
