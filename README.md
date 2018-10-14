@@ -1,4 +1,5 @@
-# bs-faker [![Build Status](https://travis-ci.org/Schniz/bs-faker.svg?branch=master)](https://travis-ci.org/Schniz/bs-faker) ![BuckleScript binding coverage](https://img.shields.io/badge/binding%20coverage-86%2F148-red.svg)
+# bs-faker [![Build Status](https://travis-ci.org/Schniz/bs-faker.svg?branch=master)](https://travis-ci.org/Schniz/bs-faker) ![BuckleScript binding coverage](https://img.shields.io/badge/binding%20coverage-96%2F148-red.svg)
+
 > [Faker.js](https://github.com/marak/Faker.js/) bindings for [BuckleScript](https://github.com/bloomberg/bucklescript) in [Reason](https://github.com/facebook/reason)
 
 # Install
@@ -118,6 +119,24 @@ let phoneNumberFormat = BsFaker.Phone.phoneNumberFormat(~phoneFormatsIndex=0); /
 let phoneFormats = BsFaker.Phone.phoneFormats(); /* => string; "###-###-#### x###" */
 ```
 
+### `BsFaker.Internet`
+let userName = BsFaker.Internet.userName(~firstName: string=?, ~lastName: string=?, ()); /* => string; "Rage.Max123" */
+let avatar = BsFaker.Internet.avatar(); /* => string; "https://s3.amazonaws.com/uifaces/faces/twitter/igorgarybaldi/128.jpg" */
+let email = BsFaker.Internet.email(); /* => string; ": "foo.bar@gmail.com" */
+let exampleEmail = BsFaker.Internet.exampleEmail(); /* => string; "foo.bar@example.org" */
+let protocol = BsFaker.Internet.protocol(); /* => string; "https" */
+let url = BsFaker.Internet.url(); /* => string; "https://rashawn.name" */
+let domainName = BsFaker.Internet.domainName(); /* => string; "marvin.org" */
+let domainSuffix = BsFaker.Internet.domainSuffix(); /* => string; "net" */
+let domainWord = BsFaker.Internet.domainWord(); /* => string; "alyce" */
+let ip = BsFaker.Internet.ip(); /* => string; "97.238.241.11" */
+let ipv6 = BsFaker.Internet.ipv6(); /* => string; "2001:0db8:6276:b1a7:5213:22f1:25df:c8a0" */
+let userAgent = BsFaker.Internet.userAgent(); /* => string; "Mozilla/5.0 (Macintosh; U; PPC Mac OS X 10_7_5 rv:6.0; SL) AppleWebKit/532.0.1 (KHTML, like Gecko)" */
+let color = BsFaker.Internet.color(); /* => string; "#06267f" */
+let mac = BsFaker.Internet.mac(); /* => string; "78:06:cc:ae:b3:81" */
+let password = BsFaker.Internet.password(); /* => string; "AM7zl6Mg" */
+```
+
 ### `BsFaker.Random`
 ```reason
 let alphaNumeric = BsFaker.Random.alphaNumeric(~count=5, ()); /* => string; "9fedl" */
@@ -141,12 +160,12 @@ let engine = BsFaker.Database.engine(); /* => string; "MyISAM" */
 
 ### `BsFaker.Hacker`
 ```reason
-let abbreviation = abbreviation(); /* => string; "XSS" */
-let adjective = adjective(); /* => string; "primary" */
-let noun = noun(); /* => string; "capacitor" */
-let verb = verb(); /* => string; "synthesize" */
-let ingverb = ingverb(); /* => string; "hacking" */
-let phrase = phrase(); /* => string; "You can't transmit the program without overriding the bluetooth RSS port!" */
+let abbreviation = BsFaker.Hacker.abbreviation(); /* => string; "XSS" */
+let adjective = BsFaker.Hacker.adjective(); /* => string; "primary" */
+let noun = BsFaker.Hacker.noun(); /* => string; "capacitor" */
+let verb = BsFaker.Hacker.verb(); /* => string; "synthesize" */
+let ingverb = BsFaker.Hacker.ingverb(); /* => string; "hacking" */
+let phrase = BsFaker.Hacker.phrase(); /* => string; "You can't transmit the program without overriding the bluetooth RSS port!" */
 ```
 
 ### `BsFaker.System`
