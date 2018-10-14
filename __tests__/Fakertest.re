@@ -439,7 +439,7 @@ describe("Faker.System", () => {
   describe(".semver", () =>
     test("returns a semver string", () =>
       expect(Faker.System.semver())
-      |> toMatchRe(Js.Re.fromString("\d\.\d\.\d"))
+      |> toMatchRe(Js.Re.fromString("\\d\\.\\d\\.\\d"))
     )
   );
 });
