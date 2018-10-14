@@ -2,6 +2,8 @@
 
 * @miluoshi: Changed the root module to be `BsFaker` thanks to BuckleScript's `namespace`,
   splitting modules to different files. (#36)
+* @miluoshi: Add bindings to Hacker module (#36)
+* @miluoshi: Add bindings to Internet module (#36)
 
 ## Pre 1.0.0
 
