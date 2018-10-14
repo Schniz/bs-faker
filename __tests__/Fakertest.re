@@ -453,3 +453,42 @@ describe("Faker.Locale", () => {
     expect(Faker.Locale.getLocale()) === "sk";
   });
 });
+
+describe("Faker.Commerce", () => {
+  test(".color", () =>
+    expect(Js.typeof(Faker.Commerce.color())) === "string"
+  );
+  test(".department", () =>
+    expect(Js.typeof(Faker.Commerce.department())) === "string"
+  );
+  test(".productName", () =>
+    expect(Js.typeof(Faker.Commerce.productName())) === "string"
+  );
+  test(".productAdjective", () =>
+    expect(Js.typeof(Faker.Commerce.productAdjective())) === "string"
+  );
+  test(".productMaterial", () =>
+    expect(Js.typeof(Faker.Commerce.productMaterial())) === "string"
+  );
+  test(".product", () =>
+    expect(Js.typeof(Faker.Commerce.product())) === "string"
+  );
+  describe(".price", () => {
+    test("accepts optional args", () =>
+      expect(Js.typeof(Faker.Commerce.price())) === "string"
+    );
+    test("accepts min", () =>
+      expect(Faker.Commerce.price(~min=900, ()) |> float_of_string) >= 900.
+    );
+    test("accepts max", () =>
+      expect(Faker.Commerce.price(~max=3, ()) |> float_of_string) <= 3.
+    );
+    test("accepts decimal", () =>
+      expect(Faker.Commerce.price(~decimal=0, ()) |> int_of_string) >= 0
+    );
+    test("accepts symbol", () =>
+      expect(Faker.Commerce.price(~symbol="$", ()) |> Js.String.startsWith("$"))
+      === true
+    );
+  });
+});

@@ -1,4 +1,4 @@
-# bs-faker [![Build Status](https://travis-ci.org/Schniz/bs-faker.svg?branch=master)](https://travis-ci.org/Schniz/bs-faker) ![BuckleScript binding coverage](https://img.shields.io/badge/binding%20coverage-73%2F148-red.svg)
+# bs-faker [![Build Status](https://travis-ci.org/Schniz/bs-faker.svg?branch=master)](https://travis-ci.org/Schniz/bs-faker) ![BuckleScript binding coverage](https://img.shields.io/badge/binding%20coverage-80%2F148-red.svg)
 > [Faker.js](https://github.com/marak/Faker.js/) bindings for [BuckleScript](https://github.com/bloomberg/bucklescript) in [Reason](https://github.com/facebook/reason)
 
 # Install
@@ -149,6 +149,18 @@ let commonFileExt = Faker.System.commonFileExt(); /* => string; "png" */
 let fileType = Faker.System.fileType(); /* => string; "audio" */
 let fileExt = Faker.System.fileExt(~mimeType="audio/webm", ()); /* => string; "model" */
 let semver = Faker.System.semver(); /* => string; "0.8.1" */
+```
+
+### `Faker.Commerce`
+
+```reason
+let color = Faker.Commerce.color(); /* => string; "maroon" */
+let department = Faker.Commerce.department(); /* => string; "Music" */
+let productName = Faker.Commerce.productName(); /* => string; "Licensed Steel Keyboard" */
+let price = Faker.Commerce.price(~min=0, ~max=1000, ~decimal=2, ~symbol="$", ()); /* => string; "$580.00" */
+let productAdjective = Faker.Commerce.productAdjective(); /* => string; "Handcrafted" */
+let productMaterial = Faker.Commerce.productMaterial(); /* => string; "Granite" */
+let product = Faker.Commerce.product(); /* => string; "Salad" */
 ```
 
 ### `Faker.Locale`
