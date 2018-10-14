@@ -1,4 +1,4 @@
-# bs-faker [![Build Status](https://travis-ci.org/Schniz/bs-faker.svg?branch=master)](https://travis-ci.org/Schniz/bs-faker) ![BuckleScript binding coverage](https://img.shields.io/badge/binding%20coverage-64%2F148-red.svg)
+# bs-faker [![Build Status](https://travis-ci.org/Schniz/bs-faker.svg?branch=master)](https://travis-ci.org/Schniz/bs-faker) ![BuckleScript binding coverage](https://img.shields.io/badge/binding%20coverage-72%2F148-red.svg)
 > [Faker.js](https://github.com/marak/Faker.js/) bindings for [BuckleScript](https://github.com/bloomberg/bucklescript) in [Reason](https://github.com/facebook/reason)
 
 # Install
@@ -137,6 +137,18 @@ let column = Faker.Database.column(); /* => string; "id" */
 let type_ = Faker.Database.type_(); /* => string; "byte" */
 let collation = Faker.Database.collation(); /* => string; "utf8_unicode_ci" */
 let engine = Faker.Database.engine(); /* => string; "MyISAM" */
+```
+
+### `Faker.System`
+```reason
+let fileName = Faker.System.fileName(); /* => string; "optical.xsm" */
+let commonFileName = Faker.System.commonFileName(~ext="txt", ()); /* => string; "redundant.txt" */
+let mimeType = Faker.System.mimeType(); /* => string; "audio/webm" */
+let commonFileType = Faker.System.commonFileType(); /* => string; "text" */
+let commonFileExt = Faker.System.commonFileExt(); /* => string; "png" */
+let fileType = Faker.System.fileType(); /* => string; "audio" */
+let fileExt = Faker.System.fileExt(~mimeType="audio/webm", ()); /* => string; "model" */
+let semver = Faker.System.semver(); /* => string; "0.8.1" */
 ```
 
 # Testing the library
