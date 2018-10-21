@@ -1,5 +1,10 @@
 # Changelog
 
+# v1.1.0
+* @ohana54: Add bindings to Finance module (#37)
+
+# v1.0.0
+
 * @miluoshi: Changed the root module to be `BsFaker` thanks to BuckleScript's `namespace`,
   splitting modules to different files. (#36)
 * @miluoshi: Add bindings to Hacker module (#36)
