@@ -1,4 +1,4 @@
-# bs-faker [![Build Status](https://travis-ci.org/Schniz/bs-faker.svg?branch=master)](https://travis-ci.org/Schniz/bs-faker) ![BuckleScript binding coverage](https://img.shields.io/badge/binding%20coverage-103%2F148-yellowgreen.svg)
+# bs-faker [![Build Status](https://travis-ci.org/Schniz/bs-faker.svg?branch=master)](https://travis-ci.org/Schniz/bs-faker) ![BuckleScript binding coverage](https://img.shields.io/badge/binding%20coverage-114%2F148-yellowgreen.svg)
 
 > [Faker.js](https://github.com/marak/Faker.js/) bindings for [BuckleScript](https://github.com/bloomberg/bucklescript) in [Reason](https://github.com/facebook/reason)
 
@@ -199,6 +199,22 @@ The variant's constructors are capitalized locale ids of available locales, i.e.
 ```reason
 let () = BsFaker.Locale.setLocale(Sk); /* => unit */
 let locale = BsFaker.Locale.getLocale(); /* => string; "sk" */
+```
+
+### `BsFaker.Finance`
+
+```reason
+let account = BsFaker.Finance.account(~length=4, ()); /* => string; "6738" */
+let accountName = BsFaker.Finance.accountName(); /* => string; "Personal Loan Account" */
+let amount = BsFaker.Finance.amount(~min=50, ~max=100, ~dec=2, ~symbol="$", ()); /* => string; "$53.54" */
+let bic = BsFaker.Finance.bic(); /* => string; "DYTOFXJ1362" */
+let bitcoinAddress = BsFaker.Finance.bitcoinAddress(); /* => string; "17C4J6I0UE9O4Y5UCOFCWLG2RYPA5HMP" */
+let currencyCode = BsFaker.Finance.currencyCode(); /* => string; "KMF" */
+let currencyName = BsFaker.Finance.currencyName(); /* => string; "Zloty" */
+let currencySymbol = BsFaker.Finance.currencySymbol(); /* => string; "CHF" */
+let iban = BsFaker.Finance.iban(); /* => string; "SE1400277200550070250082" */
+let mask = BsFaker.Finance.mask(~length=4, ~parens=true, ~ellipsis=true, ()); /* => string; "(...8899)" */
+let transactionType = BsFaker.Finance.transactionType(); /* => string; "invoice" */
 ```
 
 # Testing the library
