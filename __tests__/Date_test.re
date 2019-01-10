@@ -75,11 +75,12 @@ describe("BsFaker.Date", () => {
       expect(Js.typeof(Date.month())) === "string"
     );
 
-    test("accepts opts", () =>
-      expect(
-        Js.typeof(Date.month(~opts={"abbr": true, "context": false}, ())),
-      )
-      === "string"
+    test("accepts abbr", () =>
+      expect(Js.typeof(Date.month(~abbr=true, ()))) === "string"
+    );
+
+    test("accepts context", () =>
+      expect(Js.typeof(Date.month(~context=true, ()))) === "string"
     );
   });
 
@@ -88,11 +89,12 @@ describe("BsFaker.Date", () => {
       expect(Js.typeof(Date.weekday())) === "string"
     );
 
-    test("accepts opts", () =>
-      expect(
-        Js.typeof(Date.weekday(~opts={"abbr": true, "context": false}, ())),
-      )
-      === "string"
+    test("accepts abbr", () =>
+      expect(Js.typeof(Date.weekday(~abbr=true, ()))) === "string"
+    );
+
+    test("accepts context", () =>
+      expect(Js.typeof(Date.weekday(~context=true, ()))) === "string"
     );
   });
 });

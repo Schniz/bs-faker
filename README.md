@@ -97,8 +97,8 @@ let past = BsFaker.Date.past(~years: int=?, ~refDate: Js.Date.t=?, ()); /* => Js
 let future = BsFaker.Date.future(~years: int=?, ~refDate: Js.Date.t=?, ()); /* => Js.Date.t; */
 let between = BsFaker.Date.between(Js.Date.t, Js.Date.t); /* => Js.Date.t; */
 let recent = BsFaker.Date.recent(~days: int=?, ()); /* => Js.Date.t; */
-let month = BsFaker.Date.month(~opts: dateOption=?, ()); /* => string; */
-let weekday = BsFaker.Date.weekday(~opts: dateOption=?, ()); /* => string; */
+let month: (~abbr: bool=?, ~context: bool=?, ()); /* => string; */
+let weekday: (~abbr: bool=?, ~context: bool=?, ()); /* => string; */
 ```
 
 ### `BsFaker.Company`
