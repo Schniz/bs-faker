@@ -1,4 +1,4 @@
-# bs-faker [![Build Status](https://travis-ci.org/Schniz/bs-faker.svg?branch=master)](https://travis-ci.org/Schniz/bs-faker) ![BuckleScript binding coverage](https://img.shields.io/badge/binding%20coverage-114%2F148-yellowgreen.svg)
+# bs-faker [![Build Status](https://travis-ci.org/Schniz/bs-faker.svg?branch=master)](https://travis-ci.org/Schniz/bs-faker) ![BuckleScript binding coverage](https://img.shields.io/badge/binding%20coverage-119%2F148-yellowgreen.svg)
 
 > [Faker.js](https://github.com/marak/Faker.js/) bindings for [BuckleScript](https://github.com/bloomberg/bucklescript) in [Reason](https://github.com/facebook/reason)
 
@@ -94,6 +94,11 @@ let lines = BsFaker.Lorem.lines(~lineCount=3, ()); /* => string; */
 ### `BsFaker.Date`
 ```reason
 let past = BsFaker.Date.past(~years: int=?, ~refDate: Js.Date.t=?, ()); /* => Js.Date.t; */
+let future = BsFaker.Date.future(~years: int=?, ~refDate: Js.Date.t=?, ()); /* => Js.Date.t; */
+let between = BsFaker.Date.between(Js.Date.t, Js.Date.t); /* => Js.Date.t; */
+let recent = BsFaker.Date.recent(~days: int=?, ()); /* => Js.Date.t; */
+let month = BsFaker.Date.month(~opts: dateOption=?, ()); /* => string; */
+let weekday = BsFaker.Date.weekday(~opts: dateOption=?, ()); /* => string; */
 ```
 
 ### `BsFaker.Company`
