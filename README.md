@@ -1,4 +1,4 @@
-# bs-faker [![Build Status](https://travis-ci.org/Schniz/bs-faker.svg?branch=master)](https://travis-ci.org/Schniz/bs-faker) ![BuckleScript binding coverage](https://img.shields.io/badge/binding%20coverage-119%2F148-yellowgreen.svg)
+# bs-faker [![Build Status](https://travis-ci.org/Schniz/bs-faker.svg?branch=master)](https://travis-ci.org/Schniz/bs-faker) ![BuckleScript binding coverage](https://img.shields.io/badge/binding%20coverage-135%2F148-yellowgreen.svg)
 
 > [Faker.js](https://github.com/marak/Faker.js/) bindings for [BuckleScript](https://github.com/bloomberg/bucklescript) in [Reason](https://github.com/facebook/reason)
 
@@ -220,6 +220,27 @@ let currencySymbol = BsFaker.Finance.currencySymbol(); /* => string; "CHF" */
 let iban = BsFaker.Finance.iban(); /* => string; "SE1400277200550070250082" */
 let mask = BsFaker.Finance.mask(~length=4, ~parens=true, ~ellipsis=true, ()); /* => string; "(...8899)" */
 let transactionType = BsFaker.Finance.transactionType(); /* => string; "invoice" */
+```
+
+### `BsFaker.Address`
+
+```reason
+let city = (~format: string=?, ()); /* => string; */
+let cityPrefix = (); /* => string; */
+let citySuffix = (); /* => string; */
+let country = (); /* => string; */
+let countryCode = (); /* => string; */
+let county = (); /* => string; */
+let latitude = (); /* => string; */
+let longitude = (); /* => string; */
+let secondaryAddress = (); /* => string; */
+let state = (~useAbbr: bool=?, ()); /* => string; */
+let stateAbbr = (); /* => string; */
+let streetAddress = (~useFullAddress: bool=?, ()); /* => string; */
+let streetName = (); /* => string; */
+let streetPrefix = (); /* => string; */
+let streetSuffix = (); /* => string; */
+let zipCode = (~format: string=?, ()); /* => string; */
 ```
 
 # Testing the library
