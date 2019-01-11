@@ -1,0 +1,16 @@
+let city: (~format: string=?, unit) => string;
+let cityPrefix: unit => string;
+let citySuffix: unit => string;
+let country: unit => string;
+let countryCode: unit => string;
+let county: unit => string;
+let latitude: unit => string;
+let longitude: unit => string;
+let secondaryAddress: unit => string;
+let state: (~useAbbr: bool=?, unit) => string;
+let stateAbbr: unit => string;
+let streetAddress: (~useFullAddress: bool=?, unit) => string;
+let streetName: unit => string;
+let streetPrefix: unit => string;
+let streetSuffix: unit => string;
+let zipCode: (~format: string=?, unit) => string;
