@@ -243,6 +243,19 @@ let streetSuffix = (); /* => string; */
 let zipCode = (~format: string=?, ()); /* => string; */
 ```
 
+### `BsFaker.Helpers`
+
+```reason
+let randomize = (~arr: Js.Array.t('a)=?, ()); /* => 'a */
+let slugify = (~str: string=?, ()); /* => string */
+let replaceSymbolWithNumber = (~str: string=?, ~symbol: string=?, ()); /* => string */
+let replaceSymbols = (~str: string=?, ()); /* => string */
+let shuffle = (~o: Js.Array.t('a)=?, ()); /* => Js.Array.t('a) */
+let mustache = (~str: string=?, ~data: Js.Dict.t('a)=?, ()); /* => string */
+let createCard = (); /* => card */
+let contextualCard = (); /* => contextual_card */
+```
+
 # Testing the library
 
 ```
