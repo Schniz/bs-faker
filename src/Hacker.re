@@ -1,4 +1,3 @@
-[@bs.deriving abstract]
 type t = {
   abbreviation: unit => string,
   adjective: unit => string,
@@ -8,11 +7,11 @@ type t = {
   phrase: unit => string,
 };
 
-[@bs.module "faker"] external fakers : t = "hacker";
+[@bs.module "faker"] external fakers: t = "hacker";
 
-let abbreviation = () => abbreviation(fakers, ());
-let adjective = () => adjective(fakers, ());
-let noun = () => noun(fakers, ());
-let verb = () => verb(fakers, ());
-let ingverb = () => ingverb(fakers, ());
-let phrase = () => phrase(fakers, ());
+let abbreviation = () => fakers.abbreviation();
+let adjective = () => fakers.adjective();
+let noun = () => fakers.noun();
+let verb = () => fakers.verb();
+let ingverb = () => fakers.ingverb();
+let phrase = () => fakers.phrase();

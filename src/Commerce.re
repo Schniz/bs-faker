@@ -1,4 +1,4 @@
-[@bs.deriving abstract]
+
 type t = {
   color: unit => string,
   department: unit => string,
@@ -11,11 +11,11 @@ type t = {
 
 [@bs.module "faker"] external fakers : t = "commerce";
 
-let color = () => color(fakers, ());
-let department = () => department(fakers, ());
-let productName = () => productName(fakers, ());
+let color = () => fakers.color(());
+let department = () => fakers.department(());
+let productName = () => fakers.productName(());
 let price = (~min=0, ~max=1000, ~decimal=2, ~symbol="", ()) =>
-  price(fakers, min, max, decimal, symbol);
-let productAdjective = () => productAdjective(fakers, ());
-let productMaterial = () => productMaterial(fakers, ());
-let product = () => product(fakers, ());
+  fakers.price(min, max, decimal, symbol);
+let productAdjective = () => fakers.productAdjective(());
+let productMaterial = () => fakers.productMaterial(());
+let product = () => fakers.product(());

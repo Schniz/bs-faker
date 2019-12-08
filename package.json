@@ -15,8 +15,8 @@
   "author": "Gal Schlezinger <gal@spitfire.co.il>",
   "license": "MIT",
   "devDependencies": {
-    "@glennsl/bs-jest": "^0.4.2",
-    "bs-platform": "^3.1.5"
+    "@glennsl/bs-jest": "^0.4.9",
+    "bs-platform": "^7.0.1"
   },
   "dependencies": {
     "faker": "^4.1.0"
