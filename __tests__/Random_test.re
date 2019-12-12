@@ -9,7 +9,11 @@ describe("BsFaker.Random", () => {
     );
     test("generates string of provided length", () => {
       let count = 5;
-      expect(Random.alphaNumeric(~count, ()) |> Js.String.length) === count;
+      expect(
+        Helpers.getOrRaise(Random.alphaNumeric(~count, ()))
+        |> Js.String.length,
+      )
+      === count;
     });
   });
   describe(".arrayElement", () => {
@@ -60,7 +64,11 @@ describe("BsFaker.Random", () => {
       expect(Js.typeof(Random.words())) === "string"
     );
     test("accepts count", () =>
-      expect(Random.words(~count=5, ()) |> Js.String.split(" ") |> Js.Array.length)
+      expect(
+        Helpers.getOrRaise(Random.words(~count=5, ()))
+        |> Js.String.split(" ")
+        |> Js.Array.length,
+      )
       >= 5
     ); /* Some words consist of multiple space-separated parts */
   });

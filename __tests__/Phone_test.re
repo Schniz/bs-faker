@@ -9,7 +9,7 @@ describe("BsFaker.Phone", () => {
     );
     test("accepts format", () =>
       expect(
-        Phone.phoneNumber(~format="###_###_###", ())
+        Helpers.getOrRaise(Phone.phoneNumber(~format="###_###_###", ()))
         |> Js.String.split("_")
         |> Js.Array.length,
       )

@@ -12,7 +12,7 @@ describe("BsFaker.Company", () => {
     );
     test("accepts format", () =>
       expect(
-        Company.companyName(~format=1, ())
+        Helpers.getOrRaise(Company.companyName(~format=1, ()))
         |> Js.String.split(" - ")  /* format 1 is "something - something" */
         |> Js.Array.length,
       )
