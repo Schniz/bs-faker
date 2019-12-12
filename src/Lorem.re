@@ -1,6 +1,6 @@
 let nullable = Faker.nullable;
 
-[@bs.deriving abstract]
+
 type t = {
   word: unit => string,
   words: Js.Nullable.t(int) => string,
@@ -13,14 +13,14 @@ type t = {
   lines: Js.Nullable.t(int) => string,
 };
 [@bs.module "faker"] external fakers : t = "lorem";
-let word = () => word(fakers, ());
-let words = (~wordCount=?, ()) => words(fakers, nullable(wordCount));
-let sentence = (~wordCount=?, ()) => sentence(fakers, nullable(wordCount), ());
-let slug = (~wordCount=?, ()) => slug(fakers, nullable(wordCount));
+let word = () => fakers.word( ());
+let words = (~wordCount=?, ()) => fakers.words( nullable(wordCount));
+let sentence = (~wordCount=?, ()) => fakers.sentence( nullable(wordCount), ());
+let slug = (~wordCount=?, ()) => fakers.slug( nullable(wordCount));
 let sentences = (~sentenceCount=?, ~separator=?, ()) =>
-  sentences(fakers, nullable(sentenceCount), nullable(separator));
-let paragraph = (~sentenceCount=?, ()) => paragraph(fakers, nullable(sentenceCount));
+  fakers.sentences( nullable(sentenceCount), nullable(separator));
+let paragraph = (~sentenceCount=?, ()) => fakers.paragraph( nullable(sentenceCount));
 let paragraphs = (~paragraphCount=?, ~separator=?, ()) =>
-  paragraphs(fakers, nullable(paragraphCount), nullable(separator));
-let text = () => text(fakers, ());
-let lines = (~lineCount=?, ()) => lines(fakers, nullable(lineCount));
+  fakers.paragraphs( nullable(paragraphCount), nullable(separator));
+let text = () => fakers.text( ());
+let lines = (~lineCount=?, ()) => fakers.lines( nullable(lineCount));

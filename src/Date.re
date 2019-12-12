@@ -6,7 +6,6 @@ type dateOption = {
   "context": Js.Nullable.t(bool),
 };
 
-[@bs.deriving abstract]
 type t = {
   past: (Js.Nullable.t(int), Js.Nullable.t(Js.Date.t)) => Js.Date.t,
   future: (Js.Nullable.t(int), Js.Nullable.t(Js.Date.t)) => Js.Date.t,
@@ -15,14 +14,14 @@ type t = {
   month: dateOption => string,
   weekday: dateOption => string,
 };
-[@bs.module "faker"] external fakers : t = "date";
+[@bs.module "faker"] external fakers: t = "date";
 let past = (~years=?, ~refDate=?, ()) =>
-  past(fakers, nullable(years), nullable(refDate));
+  fakers.past(nullable(years), nullable(refDate));
 let future = (~years=?, ~refDate=?, ()) =>
-  future(fakers, nullable(years), nullable(refDate));
-let between = (from, to_) => between(fakers, from, to_);
-let recent = (~days=?, ()) => recent(fakers, nullable(days));
+  fakers.future(nullable(years), nullable(refDate));
+let between = (from, to_) => fakers.between(from, to_);
+let recent = (~days=?, ()) => fakers.recent(nullable(days));
 let month = (~abbr=?, ~context=?, ()) =>
-  month(fakers, {"abbr": nullable(abbr), "context": nullable(context)});
+  fakers.month({"abbr": nullable(abbr), "context": nullable(context)});
 let weekday = (~abbr=?, ~context=?, ()) =>
-  weekday(fakers, {"abbr": nullable(abbr), "context": nullable(context)});
+  fakers.weekday({"abbr": nullable(abbr), "context": nullable(context)});

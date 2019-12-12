@@ -1,6 +1,5 @@
 let nullable = Faker.nullable;
 
-[@bs.deriving abstract]
 type t = {
   suffixes: unit => Js.Array.t(string),
   companyName: Js.Nullable.t(int) => string,
@@ -14,15 +13,15 @@ type t = {
   bsBuzz: unit => string,
   bsNoun: unit => string,
 };
-[@bs.module "faker"] external fakers : t = "company";
-let suffixes = () => suffixes(fakers, ());
-let companyName = (~format=?, ()) => companyName(fakers, nullable(format));
-let companySuffix = () => companySuffix(fakers, ());
-let catchPhrase = () => catchPhrase(fakers, ());
-let bs = () => bs(fakers, ());
-let catchPhraseAdjective = () => catchPhraseAdjective(fakers, ());
-let catchPhraseDescriptor = () => catchPhraseDescriptor(fakers, ());
-let catchPhraseNoun = () => catchPhraseNoun(fakers, ());
-let bsAdjective = () => bsAdjective(fakers, ());
-let bsBuzz = () => bsBuzz(fakers, ());
-let bsNoun = () => bsNoun(fakers, ());
+[@bs.module "faker"] external fakers: t = "company";
+let suffixes = () => fakers.suffixes();
+let companyName = (~format=?, ()) => fakers.companyName(nullable(format));
+let companySuffix = () => fakers.companySuffix();
+let catchPhrase = () => fakers.catchPhrase();
+let bs = () => fakers.bs();
+let catchPhraseAdjective = () => fakers.catchPhraseAdjective();
+let catchPhraseDescriptor = () => fakers.catchPhraseDescriptor();
+let catchPhraseNoun = () => fakers.catchPhraseNoun();
+let bsAdjective = () => fakers.bsAdjective();
+let bsBuzz = () => fakers.bsBuzz();
+let bsNoun = () => fakers.bsNoun();

@@ -1,6 +1,6 @@
 let nullable = Faker.nullable;
 
-[@bs.deriving abstract]
+
 type t = {
   userName: (Js.Nullable.t(string), Js.Nullable.t(string)) => string,
   avatar: unit => string,
@@ -29,25 +29,24 @@ type t = {
 
 [@bs.module "faker"] external fakers : t = "internet";
 let userName = (~firstName=?, ~lastName=?, ()) =>
-  userName(fakers, nullable(firstName), nullable(lastName));
-let avatar = () => avatar(fakers, ());
+fakers.userName( nullable(firstName), nullable(lastName));
+let avatar = () => fakers.avatar( ());
 let email = (~firstName=?, ~lastName=?, ~provider=?, ()) =>
-  email(fakers, nullable(firstName), nullable(lastName), nullable(provider));
+fakers.email( nullable(firstName), nullable(lastName), nullable(provider));
 let exampleEmail = (~firstName=?, ~lastName=?, ()) =>
-  exampleEmail(fakers, nullable(firstName), nullable(lastName));
-let protocol = () => protocol(fakers, ());
-let url = () => url(fakers, ());
-let domainName = () => domainName(fakers, ());
-let domainSuffix = () => domainSuffix(fakers, ());
-let domainWord = () => domainWord(fakers, ());
-let ip = () => ip(fakers, ());
-let ipv6 = () => ipv6(fakers, ());
-let userAgent = () => userAgent(fakers, ());
-let color = (~red=0, ~green=0, ~blue=0, ()) => color(fakers, red, green, blue);
-let mac = () => mac(fakers, ());
+fakers.exampleEmail( nullable(firstName), nullable(lastName));
+let protocol = () => fakers.protocol( ());
+let url = () => fakers.url( ());
+let domainName = () => fakers.domainName( ());
+let domainSuffix = () => fakers.domainSuffix( ());
+let domainWord = () => fakers.domainWord( ());
+let ip = () => fakers.ip( ());
+let ipv6 = () => fakers.ipv6( ());
+let userAgent = () => fakers.userAgent( ());
+let color = (~red=0, ~green=0, ~blue=0, ()) => fakers.color( red, green, blue);
+let mac = () => fakers.mac( ());
 let password = (~length=?, ~memorable=?, ~pattern=?, ~prefix=?, ()) =>
-  password(
-    fakers,
+  fakers.password(
     nullable(length),
     nullable(memorable),
     nullable(pattern),

@@ -1,6 +1,5 @@
 let nullable = Faker.nullable;
 
-[@bs.deriving abstract]
 type t = {
   account: Js.Nullable.t(int) => string,
   accountName: unit => string,
@@ -23,24 +22,23 @@ type t = {
   transactionType: unit => string,
 };
 
-[@bs.module "faker"] external fakers : t = "finance";
+[@bs.module "faker"] external fakers: t = "finance";
 
-let account = (~length=?, ()) => account(fakers, nullable(length));
-let accountName = () => accountName(fakers, ());
+let account = (~length=?, ()) => fakers.account(nullable(length));
+let accountName = () => fakers.accountName();
 let amount = (~min=?, ~max=?, ~dec=?, ~symbol=?, ()) =>
-  amount(
-    fakers,
+  fakers.amount(
     nullable(min),
     nullable(max),
     nullable(dec),
     nullable(symbol),
   );
-let bic = () => bic(fakers, ());
-let bitcoinAddress = () => bitcoinAddress(fakers, ());
-let currencyCode = () => currencyCode(fakers, ());
-let currencyName = () => currencyName(fakers, ());
-let currencySymbol = () => currencySymbol(fakers, ());
-let iban = () => iban(fakers, ());
+let bic = () => fakers.bic();
+let bitcoinAddress = () => fakers.bitcoinAddress();
+let currencyCode = () => fakers.currencyCode();
+let currencyName = () => fakers.currencyName();
+let currencySymbol = () => fakers.currencySymbol();
+let iban = () => fakers.iban();
 let mask = (~length=?, ~parens=?, ~ellipsis=?, ()) =>
-  mask(fakers, nullable(length), nullable(parens), nullable(ellipsis));
-let transactionType = () => transactionType(fakers, ());
+  fakers.mask(nullable(length), nullable(parens), nullable(ellipsis));
+let transactionType = () => fakers.transactionType();

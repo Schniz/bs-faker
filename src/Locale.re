@@ -3,12 +3,11 @@ type locale = Az | Cz | De | De_AT | De_CH | En | En_AU | En_BORK | En_CA
   | Ge | Id_ID | It | Ja | Ko | Nb_NO | Nep | Nl | Pl | Pt_BR | Ru | Sk | Sv
   | Tr | Uk | Vi | Zh_CN | Zh_TW;
 
-[@bs.deriving abstract]
 type t = {mutable locale: string};
 
-[@bs.module] external faker : t = "faker";
+[@bs.module] external faker: t = "faker";
 
-let getLocale = () => locale(faker);
+let getLocale = () => faker.locale;
 
 let string_from_locale = fun
   | Az => "az" | Cz => "cz" | De => "de" | De_AT => "de_AT" | De_CH => "de_CH"
@@ -21,7 +20,7 @@ let string_from_locale = fun
   | Tr => "tr" | Uk => "uk" | Vi => "vi" | Zh_CN => "zh_CN" | Zh_TW => "zh_TW"
 ;
 
-let setLocale = (locale) => {
+let setLocale = locale => {
   let locale_string = string_from_locale(locale);
-  localeSet(faker, locale_string);
+  faker.locale = locale_string;
 };

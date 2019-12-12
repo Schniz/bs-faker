@@ -1,6 +1,6 @@
 let nullable = Faker.nullable;
 
-[@bs.deriving abstract]
+
 type t = {
   fileName: (Js.Nullable.t(string), Js.Nullable.t(string)) => string,
   commonFileName: (Js.Nullable.t(string), Js.Nullable.t(string)) => string,
@@ -20,7 +20,7 @@ type t = {
    Therefore they are not tested.
  */
 let fileName = (~ext=?, ~type_=?, ()) =>
-  fileName(fakers, nullable(ext), nullable(type_));
+  fakers.fileName( nullable(ext), nullable(type_));
 
 /*
    Optional type argument is ignored by faker.js.
@@ -28,15 +28,15 @@ let fileName = (~ext=?, ~type_=?, ()) =>
    Therefore it is not tested.
  */
 let commonFileName = (~ext=?, ~type_=?, ()) =>
-  commonFileName(fakers, nullable(ext), nullable(type_));
-let mimeType = () => mimeType(fakers, ());
-let commonFileType = () => commonFileType(fakers, ());
+  fakers.commonFileName( nullable(ext), nullable(type_));
+let mimeType = () => fakers.mimeType( ());
+let commonFileType = () => fakers.commonFileType( ());
 
 /*
    Optional type argument is ignored by faker.js.
    Therefore it is not tested.
  */
-let commonFileExt = (~type_=?, ()) => commonFileExt(fakers, nullable(type_));
-let fileType = () => fileType(fakers, ());
-let fileExt = (~mimeType=?, ()) => fileExt(fakers, nullable(mimeType));
-let semver = () => semver(fakers, ());
+let commonFileExt = (~type_=?, ()) => fakers.commonFileExt( nullable(type_));
+let fileType = () => fakers.fileType( ());
+let fileExt = (~mimeType=?, ()) => fakers.fileExt( nullable(mimeType));
+let semver = () => fakers.semver( ());

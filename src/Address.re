@@ -1,6 +1,6 @@
 let nullable = Faker.nullable;
 
-[@bs.deriving abstract]
+
 type t = {
   city: Js.Nullable.t(string) => string,
   cityPrefix: unit => string,
@@ -20,20 +20,20 @@ type t = {
   zipCode: Js.Nullable.t(string) => string,
 };
 [@bs.module "faker"] external fakers : t = "address";
-let city = (~format=?, ()) => city(fakers, nullable(format));
-let cityPrefix = () => cityPrefix(fakers, ());
-let citySuffix = () => citySuffix(fakers, ());
-let country = () => country(fakers, ());
-let countryCode = () => countryCode(fakers, ());
-let county = () => county(fakers, ());
-let latitude = () => latitude(fakers, ());
-let longitude = () => longitude(fakers, ());
-let secondaryAddress = () => secondaryAddress(fakers, ());
-let state = (~useAbbr=?, ()) => state(fakers, nullable(useAbbr));
-let stateAbbr = () => stateAbbr(fakers, ());
+let city = (~format=?, ()) => fakers.city( nullable(format));
+let cityPrefix = () => fakers.cityPrefix( ());
+let citySuffix = () => fakers.citySuffix( ());
+let country = () => fakers.country( ());
+let countryCode = () => fakers.countryCode( ());
+let county = () => fakers.county( ());
+let latitude = () => fakers.latitude( ());
+let longitude = () => fakers.longitude( ());
+let secondaryAddress = () => fakers.secondaryAddress( ());
+let state = (~useAbbr=?, ()) => fakers.state( nullable(useAbbr));
+let stateAbbr = () => fakers.stateAbbr( ());
 let streetAddress = (~useFullAddress=?, ()) =>
-  streetAddress(fakers, nullable(useFullAddress));
-let streetName = () => streetName(fakers, ());
-let streetPrefix = () => streetPrefix(fakers, ());
-let streetSuffix = () => streetSuffix(fakers, ());
-let zipCode = (~format=?, ()) => zipCode(fakers, nullable(format));
+  fakers.streetAddress( nullable(useFullAddress));
+let streetName = () => fakers.streetName( ());
+let streetPrefix = () => fakers.streetPrefix( ());
+let streetSuffix = () => fakers.streetSuffix( ());
+let zipCode = (~format=?, ()) => fakers.zipCode( nullable(format));

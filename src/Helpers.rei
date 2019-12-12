@@ -1,4 +1,4 @@
-[@bs.deriving abstract]
+
 type transaction = {
 	amount : string,
 	date : Js.Date.t,
@@ -7,20 +7,17 @@ type transaction = {
 	[@bs.as "type"] type_ : string
 };
 
-[@bs.deriving abstract]
 type card_address_geo = {
 	lat : string,
 	lng : string
 };
 
-[@bs.deriving abstract]
 type card_company = {
 	name : string,
 	catchPhrase : string,
 	bs : string
 };
 
-[@bs.deriving abstract]
 type card_post = {
 	words : string,
 	sentence : string,
@@ -28,13 +25,12 @@ type card_post = {
 	paragraph : string
 };
 
-[@bs.deriving abstract]
 type card_address = {
-	[@bs.optional] street : string,
-	[@bs.optional] streetA : string,
-	[@bs.optional] streetB : string,
-	[@bs.optional] streetC : string,
-	[@bs.optional] streetD : string,
+	street : option(string),
+	streetA : option(string),
+	streetB : option(string),
+	streetC : option(string),
+	streetD : option(string),
 	city : string,
 	state : string,
 	country : string,
@@ -42,7 +38,6 @@ type card_address = {
 	geo : card_address_geo
 };
 
-[@bs.deriving abstract]
 type card = {
 	name : string,
 	username : string,
@@ -55,7 +50,6 @@ type card = {
 	accountHistory : Js.Array.t(transaction)
 };
 
-[@bs.deriving abstract]
 type contextual_card = {
 	name : string,
 	username : string,

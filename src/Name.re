@@ -1,9 +1,10 @@
 let nullable = Faker.nullable;
 
-[@bs.deriving abstract]
+
 type t = {
   findName:
-    (Js.Nullable.t(string), Js.Nullable.t(string), Js.Nullable.t(string)) => string,
+    (Js.Nullable.t(string), Js.Nullable.t(string), Js.Nullable.t(string)) =>
+    string,
   firstName: Js.Nullable.t(string) => string,
   lastName: Js.Nullable.t(string) => string,
   prefix: Js.Nullable.t(string) => string,
@@ -12,14 +13,18 @@ type t = {
   jobArea: unit => string,
   jobType: unit => string,
 };
-[@bs.module "faker"] external fakers : t = "name";
+[@bs.module "faker"] external fakers: t = "name";
 
 let findName = (~firstName=?, ~lastName=?, ~gender=?, ()) =>
-  findName(fakers, nullable(firstName), nullable(lastName), nullable(gender));
-let firstName = (~gender=?, ()) => firstName(fakers, nullable(gender));
-let lastName = (~gender=?, ()) => lastName(fakers, nullable(gender));
-let prefix = (~gender=?, ()) => prefix(fakers, nullable(gender));
-let suffix = () => suffix(fakers, ());
-let title = () => title(fakers, ());
-let jobArea = () => jobArea(fakers, ());
-let jobType = () => jobType(fakers, ());
+  fakers.findName(
+    nullable(firstName),
+    nullable(lastName),
+    nullable(gender),
+  );
+let firstName = (~gender=?, ()) => fakers.firstName(nullable(gender));
+let lastName = (~gender=?, ()) => fakers.lastName(nullable(gender));
+let prefix = (~gender=?, ()) => fakers.prefix(nullable(gender));
+let suffix = () => fakers.suffix();
+let title = () => fakers.title();
+let jobArea = () => fakers.jobArea();
+let jobType = () => fakers.jobType();
