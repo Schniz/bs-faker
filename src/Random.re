@@ -1,12 +1,10 @@
 let nullable = Faker.nullable;
 
-
 type number_options_t = {
   min: option(int),
   max: option(int),
   precision: option(int),
 };
-
 
 type t = {
   alphaNumeric: Js.Nullable.t(int) => string,

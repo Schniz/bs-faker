@@ -3,7 +3,6 @@ let nullable = Faker.nullable;
 type fetchImage_js =
   (Js.Nullable.t(int), Js.Nullable.t(int), Js.Nullable.t(bool)) => string;
 
-
 type t = {
   avatar: unit => string,
   abstract: fetchImage_js,
@@ -32,13 +31,13 @@ type t = {
   transport: fetchImage_js,
 };
 
-[@bs.module "faker"] external fakers : t = "image";
+[@bs.module "faker"] external fakers: t = "image";
 
 let fetchImage = (fn, ~width=?, ~height=?, ~randomize=?, ()) =>
-  fn( nullable(width), nullable(height), nullable(randomize));
-let avatar = () => fakers.avatar( ());
+  fn(nullable(width), nullable(height), nullable(randomize));
+let avatar = () => fakers.avatar();
 let dataUri = (~width=?, ~height=?, ()) =>
-  fakers.dataUri( nullable(width), nullable(height));
+  fakers.dataUri(nullable(width), nullable(height));
 let imageUrl = (~width=?, ~height=?, ~category=?, ~randomize=?, ()) =>
   fakers.imageUrl(
     nullable(width),

@@ -8,11 +8,15 @@ describe("BsFaker.Internet", () => {
       expect(Js.typeof(Internet.userName())) === "string"
     );
     test("accepts firstName", () =>
-      expect(Internet.userName(~firstName="joe", ()) |> Js.String.startsWith("joe"))
+      expect(
+        Internet.userName(~firstName="joe", ())
+        |> Js.String.startsWith("joe"),
+      )
       === true
     );
     test("accepts lastName", () =>
-      expect(Js.typeof(Internet.userName(~lastName="Jones", ()))) === "string"
+      expect(Js.typeof(Internet.userName(~lastName="Jones", ())))
+      === "string"
     );
   });
   describe(".email", () => {
@@ -20,7 +24,9 @@ describe("BsFaker.Internet", () => {
       expect(Js.typeof(Internet.email())) === "string"
     );
     test("accepts firstName", () =>
-      expect(Internet.email(~firstName="joe", ()) |> Js.String.startsWith("joe"))
+      expect(
+        Internet.email(~firstName="joe", ()) |> Js.String.startsWith("joe"),
+      )
       === true
     );
     test("accepts lastName", () =>
@@ -28,7 +34,8 @@ describe("BsFaker.Internet", () => {
     );
     test("accepts provider", () =>
       expect(
-        Internet.email(~provider="domain.org", ()) |> Js.String.endsWith("domain.org"),
+        Internet.email(~provider="domain.org", ())
+        |> Js.String.endsWith("domain.org"),
       )
       === true
     );
@@ -39,15 +46,18 @@ describe("BsFaker.Internet", () => {
     );
     test("accepts firstName", () =>
       expect(
-        Internet.exampleEmail(~firstName="joe", ()) |> Js.String.startsWith("joe"),
+        Internet.exampleEmail(~firstName="joe", ())
+        |> Js.String.startsWith("joe"),
       )
       === true
     );
     test("accepts lastName", () =>
-      expect(Js.typeof(Internet.exampleEmail(~lastName="jones", ()))) === "string"
+      expect(Js.typeof(Internet.exampleEmail(~lastName="jones", ())))
+      === "string"
     );
     test("contains example domain", () =>
-      expect(Internet.exampleEmail() |> Js.String.includes("@example.")) === true
+      expect(Internet.exampleEmail() |> Js.String.includes("@example."))
+      === true
     );
   });
   test(".avatar", () =>
@@ -101,10 +111,13 @@ describe("BsFaker.Internet", () => {
     );
     test("accept pattern", () => {
       let pattern = [%re "/[a-b0-1]+/"];
-      expect(Internet.password(~pattern, ()) |. Js.Re.test(pattern)) === true;
+      expect(Internet.password(~pattern, ()) |> Js.Re.test_(pattern))
+      === true;
     });
     test("accept prefix", () =>
-      expect(Internet.password(~prefix="xxx", ()) |> Js.String.startsWith("xxx"))
+      expect(
+        Internet.password(~prefix="xxx", ()) |> Js.String.startsWith("xxx"),
+      )
       === true
     );
   });

@@ -1,6 +1,5 @@
 let nullable = Faker.nullable;
 
-
 type t = {
   findName:
     (Js.Nullable.t(string), Js.Nullable.t(string), Js.Nullable.t(string)) =>
