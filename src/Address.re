@@ -1,7 +1,5 @@
-let nullable = Faker.nullable;
-
 type t = {
-  city: Js.Nullable.t(string) => string,
+  city: option(string) => string,
   cityPrefix: unit => string,
   citySuffix: unit => string,
   country: unit => string,
@@ -10,16 +8,16 @@ type t = {
   latitude: unit => string,
   longitude: unit => string,
   secondaryAddress: unit => string,
-  state: Js.Nullable.t(bool) => string,
+  state: option(bool) => string,
   stateAbbr: unit => string,
-  streetAddress: Js.Nullable.t(bool) => string,
+  streetAddress: option(bool) => string,
   streetName: unit => string,
   streetPrefix: unit => string,
   streetSuffix: unit => string,
-  zipCode: Js.Nullable.t(string) => string,
+  zipCode: option(string) => string,
 };
 [@bs.module "faker"] external fakers: t = "address";
-let city = (~format=?, ()) => fakers.city(nullable(format));
+let city = (~format=?, ()) => Some(fakers.city(format));
 let cityPrefix = () => fakers.cityPrefix();
 let citySuffix = () => fakers.citySuffix();
 let country = () => fakers.country();
@@ -28,11 +26,11 @@ let county = () => fakers.county();
 let latitude = () => fakers.latitude();
 let longitude = () => fakers.longitude();
 let secondaryAddress = () => fakers.secondaryAddress();
-let state = (~useAbbr=?, ()) => fakers.state(nullable(useAbbr));
+let state = (~useAbbr=?, ()) => Some(fakers.state(useAbbr));
 let stateAbbr = () => fakers.stateAbbr();
 let streetAddress = (~useFullAddress=?, ()) =>
-  fakers.streetAddress(nullable(useFullAddress));
+  Some(fakers.streetAddress(useFullAddress));
 let streetName = () => fakers.streetName();
 let streetPrefix = () => fakers.streetPrefix();
 let streetSuffix = () => fakers.streetSuffix();
-let zipCode = (~format=?, ()) => fakers.zipCode(nullable(format));
+let zipCode = (~format=?, ()) => Some(fakers.zipCode(format));

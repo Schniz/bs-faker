@@ -1,8 +1,6 @@
-let nullable = Faker.nullable;
-
 type t = {
   suffixes: unit => Js.Array.t(string),
-  companyName: Js.Nullable.t(int) => string,
+  companyName: option(int) => string,
   companySuffix: unit => string,
   catchPhrase: unit => string,
   bs: unit => string,
@@ -15,7 +13,7 @@ type t = {
 };
 [@bs.module "faker"] external fakers: t = "company";
 let suffixes = () => fakers.suffixes();
-let companyName = (~format=?, ()) => fakers.companyName(nullable(format));
+let companyName = (~format=?, ()) => Some(fakers.companyName(format));
 let companySuffix = () => fakers.companySuffix();
 let catchPhrase = () => fakers.catchPhrase();
 let bs = () => fakers.bs();

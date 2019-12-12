@@ -1,12 +1,10 @@
-let nullable = Faker.nullable;
-
 type t = {
-  userName: (Js.Nullable.t(string), Js.Nullable.t(string)) => string,
+  userName: (option(string), option(string)) => string,
   avatar: unit => string,
   email:
-    (Js.Nullable.t(string), Js.Nullable.t(string), Js.Nullable.t(string)) =>
+    (option(string), option(string), option(string)) =>
     string,
-  exampleEmail: (Js.Nullable.t(string), Js.Nullable.t(string)) => string,
+  exampleEmail: (option(string), option(string)) => string,
   protocol: unit => string,
   url: unit => string,
   domainName: unit => string,
@@ -19,26 +17,26 @@ type t = {
   mac: unit => string,
   password:
     (
-      Js.Nullable.t(int),
-      Js.Nullable.t(bool),
-      Js.Nullable.t(Js.Re.t),
-      Js.Nullable.t(string)
+      option(int),
+      option(bool),
+      option(Js.Re.t),
+      option(string)
     ) =>
     string,
 };
 
 [@bs.module "faker"] external fakers: t = "internet";
 let userName = (~firstName=?, ~lastName=?, ()) =>
-  fakers.userName(nullable(firstName), nullable(lastName));
+  fakers.userName((firstName), (lastName));
 let avatar = () => fakers.avatar();
 let email = (~firstName=?, ~lastName=?, ~provider=?, ()) =>
   fakers.email(
-    nullable(firstName),
-    nullable(lastName),
-    nullable(provider),
+    (firstName),
+    (lastName),
+    (provider),
   );
 let exampleEmail = (~firstName=?, ~lastName=?, ()) =>
-  fakers.exampleEmail(nullable(firstName), nullable(lastName));
+  fakers.exampleEmail((firstName), (lastName));
 let protocol = () => fakers.protocol();
 let url = () => fakers.url();
 let domainName = () => fakers.domainName();
@@ -52,8 +50,8 @@ let color = (~red=0, ~green=0, ~blue=0, ()) =>
 let mac = () => fakers.mac();
 let password = (~length=?, ~memorable=?, ~pattern=?, ~prefix=?, ()) =>
   fakers.password(
-    nullable(length),
-    nullable(memorable),
-    nullable(pattern),
-    nullable(prefix),
+    (length),
+    (memorable),
+    (pattern),
+    (prefix),
   );
