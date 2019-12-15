@@ -12,7 +12,7 @@ describe("BsFaker.Company", () => {
     );
     test("accepts format", () =>
       expect(
-        Helpers.getOrRaise(Company.companyName(~format=1, ()))
+        Belt.Option.getExn(Company.companyName(~format=1, ()))
         |> Js.String.split(" - ")  /* format 1 is "something - something" */
         |> Js.Array.length,
       )

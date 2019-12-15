@@ -94,9 +94,3 @@ let shuffle = (~o=?, ()) => shuffle(o);
 external mustache: (option(string), option(Js.Dict.t('a))) => string =
   "mustache";
 let mustache = (~str=?, ~data=?, ()) => mustache(str, data);
-
-exception InvalidArgument(string);
-let getOrRaise =
-  fun
-  | Some(v) => v
-  | None => raise(InvalidArgument("getOrRaise called on None"));

@@ -70,4 +70,3 @@ let shuffle : (~o: Js.Array.t('a)=?, unit) => Js.Array.t('a);
 let mustache : (~str: string=?, ~data: Js.Dict.t('a)=?, unit) => string;
 let createCard : unit => card;
 let contextualCard : unit => contextual_card;
-let getOrRaise: option('a) => 'a;

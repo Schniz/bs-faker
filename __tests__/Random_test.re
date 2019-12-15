@@ -10,7 +10,7 @@ describe("BsFaker.Random", () => {
     test("generates string of provided length", () => {
       let count = 5;
       expect(
-        Helpers.getOrRaise(Random.alphaNumeric(~count, ()))
+        Belt.Option.getExn(Random.alphaNumeric(~count, ()))
         |> Js.String.length,
       )
       === count;
@@ -65,7 +65,7 @@ describe("BsFaker.Random", () => {
     );
     test("accepts count", () =>
       expect(
-        Helpers.getOrRaise(Random.words(~count=5, ()))
+        Belt.Option.getExn(Random.words(~count=5, ()))
         |> Js.String.split(" ")
         |> Js.Array.length,
       )

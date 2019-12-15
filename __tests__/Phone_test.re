@@ -9,7 +9,7 @@ describe("BsFaker.Phone", () => {
     );
     test("accepts format", () =>
       expect(
-        Helpers.getOrRaise(Phone.phoneNumber(~format="###_###_###", ()))
+        Belt.Option.getExn(Phone.phoneNumber(~format="###_###_###", ()))
         |> Js.String.split("_")
         |> Js.Array.length,
       )
