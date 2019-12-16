@@ -13,7 +13,7 @@ type t = {
 };
 [@bs.module "faker"] external fakers: t = "company";
 let suffixes = () => fakers.suffixes();
-let companyName = (~format) => fakers.companyName(format);
+let companyName = (~format=?, ()) => fakers.companyName(format);
 let companySuffix = () => fakers.companySuffix();
 let catchPhrase = () => fakers.catchPhrase();
 let bs = () => fakers.bs();
