@@ -1,4 +1,4 @@
-let city: (~format: string=?, unit) => option(string);
+let city: (~format: string=?, unit) => string;
 let cityPrefix: unit => string;
 let citySuffix: unit => string;
 let country: unit => string;
