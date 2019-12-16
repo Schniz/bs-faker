@@ -7,17 +7,17 @@ describe("BsFaker.Company", () => {
     expect(Js.Array.isArray(Company.suffixes())) === true
   );
   describe("companyName", () => {
-    // test("accepts optional args", () =>
-    //   expect(Js.typeof(Company.companyName(~format))) === "string"
-    // );
+    test("accepts optional args", () =>
+      expect(Js.typeof(Company.companyName())) === "string"
+    );
     test("accepts format", () =>
       expect(
-        Company.companyName(~format=1)
+        Company.companyName(~format=1, ())
         |> Js.String.split(" - ")  /* format 1 is "something - something" */
         |> Js.Array.length,
       )
       === 2
-    )
+    );
   });
   test("companySuffix", () =>
     expect(Js.typeof(Company.companySuffix())) === "string"

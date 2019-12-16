@@ -1,6 +1,6 @@
 type t = {
   suffixes: unit => Js.Array.t(string),
-  companyName: int => string,
+  companyName: option(int) => string,
   companySuffix: unit => string,
   catchPhrase: unit => string,
   bs: unit => string,

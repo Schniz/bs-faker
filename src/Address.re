@@ -17,7 +17,7 @@ type t = {
   zipCode: option(string) => string,
 };
 [@bs.module "faker"] external fakers: t = "address";
-let city = (~format=?, ()) => Some(fakers.city(format));
+let city = (~format=?, ()) => fakers.city(format);
 let cityPrefix = () => fakers.cityPrefix();
 let citySuffix = () => fakers.citySuffix();
 let country = () => fakers.country();
@@ -26,11 +26,11 @@ let county = () => fakers.county();
 let latitude = () => fakers.latitude();
 let longitude = () => fakers.longitude();
 let secondaryAddress = () => fakers.secondaryAddress();
-let state = (~useAbbr=?, ()) => Some(fakers.state(useAbbr));
+let state = (~useAbbr=?, ()) => fakers.state(useAbbr);
 let stateAbbr = () => fakers.stateAbbr();
 let streetAddress = (~useFullAddress=?, ()) =>
-  Some(fakers.streetAddress(useFullAddress));
+  fakers.streetAddress(useFullAddress);
 let streetName = () => fakers.streetName();
 let streetPrefix = () => fakers.streetPrefix();
 let streetSuffix = () => fakers.streetSuffix();
-let zipCode = (~format=?, ()) => Some(fakers.zipCode(format));
+let zipCode = (~format=?, ()) => fakers.zipCode(format);

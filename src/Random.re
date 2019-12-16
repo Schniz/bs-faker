@@ -16,7 +16,7 @@ type t = {
 };
 [@bs.module "faker"] external fakers: t = "random";
 
-let alphaNumeric = (~count=?, ()) => Some(fakers.alphaNumeric((count)));
+let alphaNumeric = (~count=?, ()) => fakers.alphaNumeric((count));
 let boolean = () => fakers.boolean();
 let image = () => fakers.image();
 let locale = () => fakers.locale();
@@ -30,7 +30,7 @@ let number = (~min=0, ~max=99999, ~precision=1, ()) => {
 };
 let uuid = () => fakers.uuid();
 let word = () => fakers.word();
-let words = (~count=?, ()) => Some(fakers.words((count)));
+let words = (~count=?, ()) => fakers.words((count));
 
 [@bs.module "faker"] [@bs.scope "random"]
 external arrayElement: Js.Array.t('a) => Js.Nullable.t('a) = "arrayElement";
