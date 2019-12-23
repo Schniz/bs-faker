@@ -1,4 +1,3 @@
-let nullable = Faker.nullable;
 
 type transaction = {
   amount: string,
@@ -65,10 +64,9 @@ type contextual_card = {
 };
 
 type t = {
-  slugify: Js.Nullable.t(string) => string,
-  replaceSymbolWithNumber:
-    (Js.Nullable.t(string), Js.Nullable.t(string)) => string,
-  replaceSymbols: Js.Nullable.t(string) => string,
+  slugify: option(string) => string,
+  replaceSymbolWithNumber: (option(string), option(string)) => string,
+  replaceSymbols: option(string) => string,
   createCard: unit => card,
   contextualCard: unit => contextual_card,
   userCard: unit => contextual_card,
@@ -77,25 +75,22 @@ type t = {
 
 [@bs.module "faker"] external fakers: t = "helpers";
 
-let slugify = (~str=?, ()) => fakers.slugify(nullable(str));
+let slugify = (~str=?, ()) => fakers.slugify(str);
 let replaceSymbolWithNumber = (~str=?, ~symbol=?, ()) =>
-  fakers.replaceSymbolWithNumber(nullable(str), nullable(symbol));
-let replaceSymbols = (~str=?, ()) => fakers.replaceSymbols(nullable(str));
+  fakers.replaceSymbolWithNumber(str, symbol);
+let replaceSymbols = (~str=?, ()) => fakers.replaceSymbols(str);
 let createCard = () => fakers.createCard();
 let contextualCard = () => fakers.contextualCard();
 
 [@bs.module "faker"] [@bs.scope "helpers"]
-external randomize: Js.Nullable.t(Js.Array.t('a)) => 'a = "randomize";
-let randomize = (~arr=?, ()) => randomize(nullable(arr));
+external randomize: option(Js.Array.t('a)) => 'a = "randomize";
+let randomize = (~arr=?, ()) => randomize(arr);
 
 [@bs.module "faker"] [@bs.scope "helpers"]
-external shuffle: Js.Nullable.t(Js.Array.t('a)) => Js.Array.t('a) =
-  "shuffle";
-let shuffle = (~o=?, ()) => shuffle(nullable(o));
+external shuffle: option(Js.Array.t('a)) => Js.Array.t('a) = "shuffle";
+let shuffle = (~o=?, ()) => shuffle(o);
 
 [@bs.module "faker"] [@bs.scope "helpers"]
-external mustache:
-  (Js.Nullable.t(string), Js.Nullable.t(Js.Dict.t('a))) => string =
+external mustache: (option(string), option(Js.Dict.t('a))) => string =
   "mustache";
-let mustache = (~str=?, ~data=?, ()) =>
-  mustache(nullable(str), nullable(data));
+let mustache = (~str=?, ~data=?, ()) => mustache(str, data);

@@ -1,13 +1,11 @@
-let nullable = Faker.nullable;
-
 type t = {
-  fileName: (Js.Nullable.t(string), Js.Nullable.t(string)) => string,
-  commonFileName: (Js.Nullable.t(string), Js.Nullable.t(string)) => string,
+  fileName: (option(string), option(string)) => string,
+  commonFileName: (option(string), option(string)) => string,
   mimeType: unit => string,
   commonFileType: unit => string,
-  commonFileExt: Js.Nullable.t(string) => string,
+  commonFileExt: option(string) => string,
   fileType: unit => string,
-  fileExt: Js.Nullable.t(string) => string,
+  fileExt: option(string) => string,
   semver: unit => string,
 };
 
@@ -18,8 +16,7 @@ type t = {
    See https://github.com/Marak/faker.js/issues/687
    Therefore they are not tested.
  */
-let fileName = (~ext=?, ~type_=?, ()) =>
-  fakers.fileName(nullable(ext), nullable(type_));
+let fileName = (~ext=?, ~type_=?, ()) => fakers.fileName(ext, type_);
 
 /*
    Optional type argument is ignored by faker.js.
@@ -27,7 +24,7 @@ let fileName = (~ext=?, ~type_=?, ()) =>
    Therefore it is not tested.
  */
 let commonFileName = (~ext=?, ~type_=?, ()) =>
-  fakers.commonFileName(nullable(ext), nullable(type_));
+  fakers.commonFileName(ext, type_);
 let mimeType = () => fakers.mimeType();
 let commonFileType = () => fakers.commonFileType();
 
@@ -35,7 +32,7 @@ let commonFileType = () => fakers.commonFileType();
    Optional type argument is ignored by faker.js.
    Therefore it is not tested.
  */
-let commonFileExt = (~type_=?, ()) => fakers.commonFileExt(nullable(type_));
+let commonFileExt = (~type_=?, ()) => fakers.commonFileExt(type_);
 let fileType = () => fakers.fileType();
-let fileExt = (~mimeType=?, ()) => fakers.fileExt(nullable(mimeType));
+let fileExt = (~mimeType=?, ()) => fakers.fileExt(mimeType);
 let semver = () => fakers.semver();

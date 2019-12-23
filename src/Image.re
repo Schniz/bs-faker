@@ -1,7 +1,5 @@
-let nullable = Faker.nullable;
-
 type fetchImage_js =
-  (Js.Nullable.t(int), Js.Nullable.t(int), Js.Nullable.t(bool)) => string;
+  (option(int), option(int), option(bool)) => string;
 
 type t = {
   avatar: unit => string,
@@ -10,16 +8,16 @@ type t = {
   business: fetchImage_js,
   cats: fetchImage_js,
   city: fetchImage_js,
-  dataUri: (Js.Nullable.t(int), Js.Nullable.t(int)) => string,
+  dataUri: (option(int), option(int)) => string,
   fashion: fetchImage_js,
   food: fetchImage_js,
   image: fetchImage_js,
   imageUrl:
     (
-      Js.Nullable.t(int),
-      Js.Nullable.t(int),
-      Js.Nullable.t(string),
-      Js.Nullable.t(bool),
+      option(int),
+      option(int),
+      option(string),
+      option(bool),
       unit
     ) =>
     string,
@@ -34,16 +32,16 @@ type t = {
 [@bs.module "faker"] external fakers: t = "image";
 
 let fetchImage = (fn, ~width=?, ~height=?, ~randomize=?, ()) =>
-  fn(nullable(width), nullable(height), nullable(randomize));
+  fn((width), (height), (randomize));
 let avatar = () => fakers.avatar();
 let dataUri = (~width=?, ~height=?, ()) =>
-  fakers.dataUri(nullable(width), nullable(height));
+  fakers.dataUri((width), (height));
 let imageUrl = (~width=?, ~height=?, ~category=?, ~randomize=?, ()) =>
   fakers.imageUrl(
-    nullable(width),
-    nullable(height),
-    nullable(category),
-    nullable(randomize),
+    (width),
+    (height),
+    (category),
+    (randomize),
     (),
   );
 let abstract = fetchImage(fakers.abstract);
