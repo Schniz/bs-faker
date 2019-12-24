@@ -1,5 +1,6 @@
 let findName:
-  (~firstName: string=?, ~lastName: string=?, ~gender: string=?, unit) => string;
+  (~firstName: string=?, ~lastName: string=?, ~gender: string=?, unit) =>
+  string;
 let firstName: (~gender: string=?, unit) => string;
 let lastName: (~gender: string=?, unit) => string;
 let prefix: (~gender: string=?, unit) => string;

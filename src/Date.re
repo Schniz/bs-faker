@@ -13,8 +13,7 @@ type t = {
 };
 [@bs.module "faker"] external fakers: t = "date";
 let past = (~years=?, ~refDate=?, ()) => fakers.past(years, refDate);
-let future = (~years=?, ~refDate=?, ()) =>
-  fakers.future((years), (refDate));
+let future = (~years=?, ~refDate=?, ()) => fakers.future(years, refDate);
 let between = (from, to_) => fakers.between(from, to_);
 let recent = (~days=?, ()) => fakers.recent(days);
 let month = (~abbr=?, ~context=?, ()) => fakers.month({abbr, context});

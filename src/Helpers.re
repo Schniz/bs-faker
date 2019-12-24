@@ -1,4 +1,3 @@
-
 type transaction = {
   amount: string,
   date: Js.Date.t,

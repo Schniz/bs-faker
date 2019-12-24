@@ -1,5 +1,4 @@
-type fetchImage_js =
-  (option(int), option(int), option(bool)) => string;
+type fetchImage_js = (option(int), option(int), option(bool)) => string;
 
 type t = {
   avatar: unit => string,
@@ -13,13 +12,7 @@ type t = {
   food: fetchImage_js,
   image: fetchImage_js,
   imageUrl:
-    (
-      option(int),
-      option(int),
-      option(string),
-      option(bool),
-      unit
-    ) =>
+    (option(int), option(int), option(string), option(bool), unit) =>
     string,
   nature: fetchImage_js,
   nightlife: fetchImage_js,
@@ -32,18 +25,11 @@ type t = {
 [@bs.module "faker"] external fakers: t = "image";
 
 let fetchImage = (fn, ~width=?, ~height=?, ~randomize=?, ()) =>
-  fn((width), (height), (randomize));
+  fn(width, height, randomize);
 let avatar = () => fakers.avatar();
-let dataUri = (~width=?, ~height=?, ()) =>
-  fakers.dataUri((width), (height));
+let dataUri = (~width=?, ~height=?, ()) => fakers.dataUri(width, height);
 let imageUrl = (~width=?, ~height=?, ~category=?, ~randomize=?, ()) =>
-  fakers.imageUrl(
-    (width),
-    (height),
-    (category),
-    (randomize),
-    (),
-  );
+  fakers.imageUrl(width, height, category, randomize, ());
 let abstract = fetchImage(fakers.abstract);
 let animals = fetchImage(fakers.animals);
 let business = fetchImage(fakers.business);

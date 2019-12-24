@@ -11,15 +11,13 @@ type t = {
 };
 [@bs.module "faker"] external fakers: t = "lorem";
 let word = () => fakers.word();
-let words = (~wordCount=?, ()) => fakers.words((wordCount));
-let sentence = (~wordCount=?, ()) =>
-  fakers.sentence((wordCount), ());
-let slug = (~wordCount=?, ()) => fakers.slug((wordCount));
+let words = (~wordCount=?, ()) => fakers.words(wordCount);
+let sentence = (~wordCount=?, ()) => fakers.sentence(wordCount, ());
+let slug = (~wordCount=?, ()) => fakers.slug(wordCount);
 let sentences = (~sentenceCount=?, ~separator=?, ()) =>
-  fakers.sentences((sentenceCount), (separator));
-let paragraph = (~sentenceCount=?, ()) =>
-  fakers.paragraph((sentenceCount));
+  fakers.sentences(sentenceCount, separator);
+let paragraph = (~sentenceCount=?, ()) => fakers.paragraph(sentenceCount);
 let paragraphs = (~paragraphCount=?, ~separator=?, ()) =>
-  fakers.paragraphs((paragraphCount), (separator));
+  fakers.paragraphs(paragraphCount, separator);
 let text = () => fakers.text();
-let lines = (~lineCount=?, ()) => fakers.lines((lineCount));
+let lines = (~lineCount=?, ()) => fakers.lines(lineCount);
